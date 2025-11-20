@@ -1,0 +1,150 @@
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xd (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1738
+load:0x403cc710,len:0xb9c
+load:0x403ce710,len:0x2e4c
+entry 0x403cc71a
+[0;32mI (30) boot: ESP-IDF v5.3.1-dirty 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Nov 20 2025 10:26:52[0m
+[0;32mI (30) boot: chip revision: v0.3[0m
+[0;32mI (34) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (39) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0a3ech ( 41964) map[0m
+[0;32mI (106) esp_image: segment 1: paddr=0001a414 vaddr=3fc8c600 size=01668h (  5736) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001ba84 vaddr=40380000 size=04594h ( 17812) load[0m
+[0;32mI (119) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=190f8h (102648) map[0m
+[0;32mI (141) esp_image: segment 4: paddr=00039120 vaddr=40384594 size=08024h ( 32804) load[0m
+[0;32mI (151) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (151) boot: Disabling RNG early entropy source...[0m
+[0;32mI (163) cpu_start: Unicore app[0m
+[0;32mI (172) cpu_start: Pro cpu start user code[0m
+[0;32mI (172) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (172) app_init: Application information:[0m
+[0;32mI (175) app_init: Project name:     MCU_final_project[0m
+[0;32mI (181) app_init: App version:      v5.3.1-dirty[0m
+[0;32mI (186) app_init: Compile time:     Nov 20 2025 10:26:23[0m
+[0;32mI (192) app_init: ELF file SHA256:  830a1aa6d...[0m
+[0;32mI (197) app_init: ESP-IDF:          v5.3.1-dirty[0m
+[0;32mI (203) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (207) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (212) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (217) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (224) heap_init: At 3FC8EB30 len 000314D0 (197 KiB): RAM[0m
+[0;32mI (230) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (237) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (244) heap_init: At 50000200 len 00001DE8 (7 KiB): RTCRAM[0m
+[0;32mI (252) spi_flash: detected chip: generic[0m
+[0;32mI (255) spi_flash: flash io: dio[0m
+[0;33mW (259) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (272) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (279) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (286) main_task: Started on CPU0[0m
+[0;32mI (296) main_task: Calling app_main()[0m
+[0;32mI (296) WS2812: Initializing WS2812...[0m
+[0;32mI (296) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (306) gpio: GPIO[8]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (316) WS2812: Start blinking![0m
+[0;32mI (316) WS2812: Mode: 0[0m
+[0;32mI (6676) WS2812: Mode: 1[0m
+[0;32mI (9006) WS2812: Mode: 2[0m
+[0;32mI (10696) WS2812: Mode: 0[0m
+[0;32mI (12486) WS2812: Mode: 1[0m
+[0;32mI (12586) WS2812: Mode: 2[0m
+[0;32mI (12646) WS2812: Mode: 0[0m
+[0;32mI (14876) WS2812: Mode: 1[0m
+[0;32mI (21326) WS2812: Mode: 2[0m
+[0;32mI (21386) WS2812: Mode: 0[0m
+[0;32mI (23566) WS2812: Mode: 1[0m
+[0;32mI (23816) WS2812: Mode: 2[0m
+[0;32mI (24376) WS2812: Mode: 0[0m
+[0;32mI (24556) WS2812: Mode: 1[0m
+[0;32mI (25906) WS2812: Mode: 2[0m
+[0;32mI (25966) WS2812: Mode: 0[0m
+[0;32mI (26076) WS2812: Mode: 1[0m
+[0;32mI (26136) WS2812: Mode: 2[0m
+[0;32mI (27076) WS2812: Mode: 0[0m
+[0;32mI (27996) WS2812: Mode: 1[0m
+[0;32mI (37146) WS2812: Mode: 2[0m
+[0;32mI (37326) WS2812: Mode: 0[0m
+[0;32mI (38186) WS2812: Mode: 1[0m
+[0;32mI (38366) WS2812: Mode: 2[0m
+[0;32mI (39086) WS2812: Mode: 0[0m
+[0;32mI (39836) WS2812: Mode: 1[0m
+[0;32mI (40786) WS2812: Mode: 2[0m
+[0;32mI (41726) WS2812: Mode: 0[0m
+[0;32mI (42906) WS2812: Mode: 1[0m
+[0;32mI (43846) WS2812: Mode: 2[0m
+[0;32mI (44656) WS2812: Mode: 0[0m
+[0;32mI (44716) WS2812: Mode: 1[0m
+[0;32mI (45356) WS2812: Mode: 2[0m
+[0;32mI (46106) WS2812: Mode: 0[0m
+[0;32mI (46826) WS2812: Mode: 1[0m
+[0;32mI (49526) WS2812: Mode: 2[0m
+[0;32mI (50726) WS2812: Mode: 0[0m
+[0;32mI (54326) WS2812: Mode: 1[0m
+[0;32mI (54826) WS2812: Mode: 2[0m
+[0;32mI (55306) WS2812: Mode: 0[0m
+[0;32mI (85006) WS2812: Mode: 1[0m
+[0;32mI (85106) WS2812: Mode: 2[0m
+[0;32mI (89076) WS2812: Mode: 0[0m
+[0;32mI (89326) WS2812: Mode: 1[0m
+[0;32mI (103476) WS2812: Mode: 2[0m
+[0;32mI (104266) WS2812: Mode: 0[0m
+[0;32mI (104916) WS2812: Mode: 1[0m
+[0;32mI (105096) WS2812: Mode: 2[0m
+[0;32mI (105406) WS2812: Mode: 0[0m
+[0;32mI (105856) WS2812: Mode: 1[0m
+[0;32mI (106296) WS2812: Mode: 2[0m
+[0;32mI (106696) WS2812: Mode: 0[0m
+[0;32mI (107126) WS2812: Mode: 1[0m
+[0;32mI (107526) WS2812: Mode: 2[0m
+[0;32mI (107916) WS2812: Mode: 0[0m
+[0;32mI (108336) WS2812: Mode: 1[0m
+[0;32mI (108866) WS2812: Mode: 2[0m
+[0;32mI (109276) WS2812: Mode: 0[0m
+[0;32mI (109646) WS2812: Mode: 1[0m
+[0;32mI (110046) WS2812: Mode: 2[0m
+[0;32mI (110466) WS2812: Mode: 0[0m
+[0;32mI (110966) WS2812: Mode: 1[0m
+[0;32mI (111406) WS2812: Mode: 2[0m
+[0;32mI (111836) WS2812: Mode: 0[0m
+[0;32mI (111966) WS2812: Mode: 1[0m
+[0;32mI (112276) WS2812: Mode: 2[0m
+[0;32mI (117556) WS2812: Mode: 0[0m
+[0;32mI (119826) WS2812: Mode: 1[0m
+[0;32mI (120406) WS2812: Mode: 2[0m
+[0;32mI (121356) WS2812: Mode: 0[0m
+[0;32mI (121496) WS2812: Mode: 1[0m
+[0;32mI (131956) WS2812: Mode: 2[0m
+[0;32mI (132586) WS2812: Mode: 0[0m
+[0;32mI (133146) WS2812: Mode: 1[0m
+[0;32mI (133736) WS2812: Mode: 2[0m
+[0;32mI (133866) WS2812: Mode: 0[0m
+[0;32mI (134306) WS2812: Mode: 1[0m
+[0;32mI (134806) WS2812: Mode: 2[0m
+[0;32mI (135296) WS2812: Mode: 0[0m
+[0;32mI (135796) WS2812: Mode: 1[0m
+[0;32mI (136316) WS2812: Mode: 2[0m
+[0;32mI (136746) WS2812: Mode: 0[0m
+[0;32mI (137286) WS2812: Mode: 1[0m
+[0;32mI (137766) WS2812: Mode: 2[0m
+[0;32mI (137906) WS2812: Mode: 0[0m
+[0;32mI (138646) WS2812: Mode: 1[0m
+[0;32mI (140196) WS2812: Mode: 2[0m
+[0;32mI (141186) WS2812: Mode: 0[0m
+[0;32mI (148986) WS2812: Mode: 1[0m
+[0;32mI (150746) WS2812: Mode: 2[0m
+[0;32mI (151596) WS2812: Mode: 0[0m
+[0;32mI (153116) WS2812: Mode: 1[0m
+[0;32mI (154086) WS2812: Mode: 2[0m
