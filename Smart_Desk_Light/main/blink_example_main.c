@@ -54,7 +54,7 @@ static const uint8_t font_8x8[][8] = {
     {0x36, 0x49, 0x49, 0x49, 0x36, 0x00, 0x00, 0x00}, // 8
     {0x06, 0x49, 0x49, 0x29, 0x1E, 0x00, 0x00, 0x00}, // 9
     {0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00}, // :
-    {0x7C, 0x12, 0x11, 0x12, 0x7C, 0x00, 0x00, 0x00}, // /
+    {0x00, 0x00, 0x00, 0x3C, 0x3C, 0x00, 0x00, 0x00}  // - (gạch ngang ở giữa, chuẩn)
 };
 
 // ===== CHUYỂN ĐỔI BCD =====
@@ -262,24 +262,37 @@ void oled_draw_large_char(uint8_t page, uint8_t col, uint8_t c) {
     }
 }
 
-// ===== HIỂN THỊ THỜI GIAN =====
-void oled_display_time(rtc_time_t *time) {
-    // Hiển thị giờ lớn (page 2-3)
-    oled_draw_large_char(2, 10, time->hours / 10 + '0');
-    oled_draw_large_char(2, 26, time->hours % 10 + '0');
-    oled_draw_large_char(2, 46, ':');
-    oled_draw_large_char(2, 58, time->minutes / 10 + '0');
-    oled_draw_large_char(2, 74, time->minutes % 10 + '0');
-    oled_draw_large_char(2, 94, ':');
-    oled_draw_large_char(2, 106, time->seconds / 10 + '0');
-    oled_draw_large_char(2, 122, time->seconds % 10 + '0');  // ĐÃ SỬA: Thêm chữ số cuối
+// ===== HIỂN THỊ CHỈ GIỜ (TO) =====
+void oled_display_time_only(rtc_time_t *time) {
+    // Dịch sang trái: bắt đầu từ cột 
+    int add = 15 ; 
+    oled_draw_large_char(3,add, time->hours / 10 + '0');
+    oled_draw_large_char(3, 16+add, time->hours % 10 + '0');
+    oled_draw_large_char(3, 28+add, ':');
+    oled_draw_large_char(3, 40+add, time->minutes / 10 + '0');
+    oled_draw_large_char(3, 52+add, time->minutes % 10 + '0');
+    oled_draw_large_char(3, 64+add, ':');
+    oled_draw_large_char(3, 76+add, time->seconds / 10 + '0');
+    oled_draw_large_char(3, 88+add, time->seconds % 10 + '0');
+}
+
+// ===== HIỂN THỊ CHỈ NGÀY (TO) =====
+void oled_display_date_only(rtc_time_t *time) {
+    // Dòng 1: Ngày/Tháng (page 2-3)
+    int add = 25 ; 
+    oled_draw_large_char(2, add, time->date / 10 + '0');
+    oled_draw_large_char(2, 16+add, time->date % 10 + '0');
+    oled_draw_large_char(2, 32+add, '/');
+    oled_draw_large_char(2, 48+add, time->month / 10 + '0');
+    oled_draw_large_char(2, 64+add, time->month % 10 + '0');
     
-    // Hiển thị ngày (page 5-6)
-    oled_draw_large_char(5, 10, time->date / 10 + '0');
-    oled_draw_large_char(5, 26, time->date % 10 + '0');
-    oled_draw_large_char(5, 42, '/');
-    oled_draw_large_char(5, 54, time->month / 10 + '0');
-    oled_draw_large_char(5, 70, time->month % 10 + '0');
+    // Dòng 2: Năm (page 5-6)
+    int offset = 30 ; 
+    uint16_t year = time->year;
+    oled_draw_large_char(5, offset, (year / 1000) + '0');
+    oled_draw_large_char(5, 16+offset, ((year / 100) % 10) + '0');
+    oled_draw_large_char(5, 32+offset, ((year / 10) % 10) + '0');
+    oled_draw_large_char(5, 48+offset, (year % 10) + '0');
 }
 
 // ===== ĐỌC THỜI GIAN DS3231 =====
@@ -325,18 +338,34 @@ esp_err_t ds3231_set_time(rtc_time_t *time) {
     return err;
 }
 
-// ===== TASK HIỂN THỊ =====
+// ===== TASK HIỂN THỊ LUÂN PHIÊN =====
 void display_task(void *pvParameter) {
     rtc_time_t time;
+    bool show_time = true;  // true = hiển thị giờ, false = hiển thị ngày
+    uint8_t counter = 0;
     
     while (1) {
         if (ds3231_get_time(&time) == ESP_OK) {
             oled_clear();
-            oled_display_time(&time);
             
-            ESP_LOGI(TAG, "%02d:%02d:%02d - %02d/%02d/%04d",
-                     time.hours, time.minutes, time.seconds,
-                     time.date, time.month, time.year);
+            // Luân phiên: 3 giây hiển thị giờ, 3 giây hiển thị ngày
+            if (show_time) {
+                oled_display_time_only(&time);
+                ESP_LOGI(TAG, "TIME: %02d:%02d:%02d", 
+                         time.hours, time.minutes, time.seconds);
+            } else {
+                oled_display_date_only(&time);
+                ESP_LOGI(TAG, "DATE: %02d/%02d/%04d", 
+                         time.date, time.month, time.year);
+            }
+            
+            counter++;
+            
+            // Đổi chế độ hiển thị sau mỗi 3 giây
+            if (counter >= 3) {
+                counter = 0;
+                show_time = !show_time;  // Đổi giữa giờ và ngày
+            }
         } else {
             ESP_LOGE(TAG, "Failed to read time from DS3231");
         }
@@ -391,22 +420,22 @@ void app_main(void) {
     oled_clear();
     vTaskDelay(pdMS_TO_TICKS(500));
     
-    // ===== ĐẶT THỜI GIAN BAN ĐẦU =====
-    rtc_time_t init_time = {
-        .seconds = 0,
-        .minutes = 38,
-        .hours = 12,
-        .day = 7,
-        .date = 29,
-        .month = 11,
-        .year = 2025
-    };
+    // // ===== ĐẶT THỜI GIAN BAN ĐẦU =====
+    // rtc_time_t init_time = {
+    //     .seconds = 0,
+    //     .minutes = 23,
+    //     .hours = 12,
+    //     .day = 7,
+    //     .date = 29,
+    //     .month = 11,
+    //     .year = 2025
+    // };
     
-    if (ds3231_set_time(&init_time) == ESP_OK) {
-        ESP_LOGI(TAG, "Time set successfully!");
-    } else {
-        ESP_LOGE(TAG, "Failed to set time!");
-    }
+    // if (ds3231_set_time(&init_time) == ESP_OK) {
+    //     ESP_LOGI(TAG, "Time set successfully!");
+    // } else {
+    //     ESP_LOGE(TAG, "Failed to set time!");
+    // }
     
     ESP_LOGI(TAG, "Starting display...");
     xTaskCreate(display_task, "display_task", 4096, NULL, 5, NULL);
