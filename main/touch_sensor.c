@@ -7,7 +7,7 @@ static void IRAM_ATTR touch_isr_handler () {
     uint32_t now = xTaskGetTickCountFromISR() * portTICK_PERIOD_MS;
     if ((now - last_interrupt_time) > DEBOUNCE_TIME_MS) {
         touch_count++;
-        if (touch_count > 2) {
+        if (touch_count > MODE) {
             touch_count = 0;
         }
         last_interrupt_time = now;

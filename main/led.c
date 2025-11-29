@@ -20,6 +20,13 @@ void led_init() {
     ESP_ERROR_CHECK(led_strip_clear(led_strip));
 }
 
+void led_off () {
+    for (int i = 0; i < LED_NUM; i++) {
+        led_strip_set_pixel(led_strip, i, 0, 0, 0);
+    }
+    led_strip_refresh(led_strip);
+}
+
 void white_led () {
     for (int i = 0; i < LED_NUM; i++) {
         led_strip_set_pixel(led_strip, i, 255, 255, 100);

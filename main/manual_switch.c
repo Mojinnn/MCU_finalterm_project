@@ -6,17 +6,20 @@ static int last_mode = -1;
 static void mode_switch(int mode) {
     switch (mode)
     {
-    case 0:
+    case OFF:
+        led_off();
+        break;
+    case WHITE:
         white_led();
         break;
-    case 1:
+    case YELLOW:
         yellow_led();
         break;
-    case 2:
+    case BLUE:
         blue_led();
         break;
     default:
-        white_led();
+        led_off();
         break;
     }
 }
