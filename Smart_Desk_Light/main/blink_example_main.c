@@ -295,6 +295,7 @@ void oled_display_date_only(rtc_time_t *time) {
     oled_draw_large_char(5, 48+offset, (year % 10) + '0');
 }
 
+
 // ===== ĐỌC THỜI GIAN DS3231 =====
 esp_err_t ds3231_get_time(rtc_time_t *time) {
     uint8_t reg = 0x00;
@@ -420,11 +421,11 @@ void app_main(void) {
     oled_clear();
     vTaskDelay(pdMS_TO_TICKS(500));
     
-    // // ===== ĐẶT THỜI GIAN BAN ĐẦU =====
+    // ===== ĐẶT THỜI GIAN BAN ĐẦU =====
     // rtc_time_t init_time = {
     //     .seconds = 0,
-    //     .minutes = 23,
-    //     .hours = 12,
+    //     .minutes = 12,
+    //     .hours = 2,
     //     .day = 7,
     //     .date = 29,
     //     .month = 11,

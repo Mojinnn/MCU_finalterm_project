@@ -1,0 +1,178 @@
+Command: e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe e:\esp_idf\esp\v5.5\esp-idf\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace D:\ESP_32\Smart_Desk_Light\build\Smart_Desk_Light.elf D:\ESP_32\Smart_Desk_Light\build\bootloader\bootloader.elf --force-color -m 'e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'e:\esp_idf\esp\v5.5\esp-idf\tools\idf.py'
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xf (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (30) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (30) boot: chip revision: v0.3[0m
+[0;32mI (30) boot: efuse block revision: v1.1[0m
+[0;32mI (34) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (38) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09a04h ( 39428) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=00019a2c vaddr=3fc8f600 size=012ech (  4844) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001ad20 vaddr=40380000 size=052f8h ( 21240) load[0m
+[0;32mI (107) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=18aa0h (101024) map[0m
+[0;32mI (127) esp_image: segment 4: paddr=00038ac8 vaddr=403852f8 size=0a2a0h ( 41632) load[0m
+[0;32mI (135) esp_image: segment 5: paddr=00042d70 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (140) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (140) boot: Disabling RNG early entropy source...[0m
+[0;32mI (152) cpu_start: Unicore app[0m
+[0;32mI (161) cpu_start: Pro cpu start user code[0m
+[0;32mI (161) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (161) app_init: Application information:[0m
+[0;32mI (161) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (166) app_init: App version:      1[0m
+[0;32mI (169) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (174) app_init: ELF file SHA256:  ca10b21c1...[0m
+[0;32mI (178) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (182) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (186) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (190) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (194) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (200) heap_init: At 3FC91760 len 0002E8A0 (186 KiB): RAM[0m
+[0;32mI (205) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (211) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (223) spi_flash: detected chip: generic[0m
+[0;32mI (226) spi_flash: flash io: dio[0m
+[0;33mW (229) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (241) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (251) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (257) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (264) main_task: Started on CPU0[0m
+[0;32mI (264) main_task: Calling app_main()[0m
+[0;32mI (264) RTC_OLED_SPI: ========================================[0m
+[0;32mI (274) RTC_OLED_SPI:   ESP32-C3 RTC DS3231 + OLED SPI[0m
+[0;32mI (274) RTC_OLED_SPI: ========================================[0m
+[0;32mI (284) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (284) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (304) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (404) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (504) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (504) RTC_OLED_SPI: Testing OLED...[0m
+[0;32mI (504) RTC_OLED_SPI: Drawing test pattern...[0m
+[0;32mI (504) RTC_OLED_SPI: Test pattern complete[0m
+[0;32mI (3004) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (3004) main_task: Returned from app_main()[0m
+[0;32mI (3004) RTC_OLED_SPI: TIME: 00:01:27[0m
+[0;32mI (4004) RTC_OLED_SPI: TIME: 00:01:28[0m
+[0;32mI (5004) RTC_OLED_SPI: TIME: 00:01:29[0m
+[0;32mI (6004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (7004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (8004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (9004) RTC_OLED_SPI: TIME: 00:01:33[0m
+[0;32mI (10004) RTC_OLED_SPI: TIME: 00:01:34[0m
+[0;32mI (11004) RTC_OLED_SPI: TIME: 00:01:35[0m
+[0;32mI (12004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (13004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (14004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (15004) RTC_OLED_SPI: TIME: 00:01:39[0m
+[0;32mI (16004) RTC_OLED_SPI: TIME: 00:01:40[0m
+[0;32mI (17004) RTC_OLED_SPI: TIME: 00:01:41[0m
+[0;32mI (18004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (19004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (20004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (21004) RTC_OLED_SPI: TIME: 00:01:45[0m
+[0;32mI (22004) RTC_OLED_SPI: TIME: 00:01:46[0m
+[0;32mI (23004) RTC_OLED_SPI: TIME: 00:01:47[0m
+[0;32mI (24004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (25004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (26004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (27004) RTC_OLED_SPI: TIME: 00:01:51[0m
+[0;32mI (28004) RTC_OLED_SPI: TIME: 00:01:52[0m
+[0;32mI (29004) RTC_OLED_SPI: TIME: 00:01:53[0m
+[0;32mI (30004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (31004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (32004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (33004) RTC_OLED_SPI: TIME: 00:01:57[0m
+[0;32mI (34004) RTC_OLED_SPI: TIME: 00:01:58[0m
+[0;32mI (35004) RTC_OLED_SPI: TIME: 00:01:59[0m
+[0;32mI (36004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (37004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (38004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (39004) RTC_OLED_SPI: TIME: 00:02:03[0m
+[0;32mI (40004) RTC_OLED_SPI: TIME: 00:02:04[0m
+[0;32mI (41004) RTC_OLED_SPI: TIME: 00:02:05[0m
+[0;32mI (42004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (43004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (44004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (45004) RTC_OLED_SPI: TIME: 00:02:09[0m
+[0;32mI (46004) RTC_OLED_SPI: TIME: 00:02:10[0m
+[0;32mI (47004) RTC_OLED_SPI: TIME: 00:02:11[0m
+[0;32mI (48004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (49004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (50004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (51004) RTC_OLED_SPI: TIME: 00:02:15[0m
+[0;32mI (52004) RTC_OLED_SPI: TIME: 00:02:16[0m
+[0;32mI (53004) RTC_OLED_SPI: TIME: 00:02:17[0m
+[0;32mI (54004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (55004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (56004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (57004) RTC_OLED_SPI: TIME: 00:02:21[0m
+[0;32mI (58004) RTC_OLED_SPI: TIME: 00:02:22[0m
+[0;32mI (59004) RTC_OLED_SPI: TIME: 00:02:23[0m
+[0;32mI (60004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (61004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (62004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (63004) RTC_OLED_SPI: TIME: 00:02:27[0m
+[0;32mI (64004) RTC_OLED_SPI: TIME: 00:02:28[0m
+[0;32mI (65004) RTC_OLED_SPI: TIME: 00:02:29[0m
+[0;32mI (66004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (67004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (68004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (69004) RTC_OLED_SPI: TIME: 00:02:33[0m
+[0;32mI (70004) RTC_OLED_SPI: TIME: 00:02:34[0m
+[0;32mI (71004) RTC_OLED_SPI: TIME: 00:02:35[0m
+[0;32mI (72004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (73004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (74004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (75004) RTC_OLED_SPI: TIME: 00:02:39[0m
+[0;32mI (76004) RTC_OLED_SPI: TIME: 00:02:40[0m
+[0;32mI (77004) RTC_OLED_SPI: TIME: 00:02:41[0m
+[0;32mI (78004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (79004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (80004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (81004) RTC_OLED_SPI: TIME: 00:02:45[0m
+[0;32mI (82004) RTC_OLED_SPI: TIME: 00:02:46[0m
+[0;32mI (83004) RTC_OLED_SPI: TIME: 00:02:47[0m
+[0;32mI (84004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (85004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (86004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (87004) RTC_OLED_SPI: TIME: 00:02:51[0m
+[0;32mI (88004) RTC_OLED_SPI: TIME: 00:02:52[0m
+[0;32mI (89004) RTC_OLED_SPI: TIME: 00:02:53[0m
+[0;32mI (90004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (91004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (92004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (93004) RTC_OLED_SPI: TIME: 00:02:57[0m
+[0;32mI (94004) RTC_OLED_SPI: TIME: 00:02:58[0m
+[0;32mI (95004) RTC_OLED_SPI: TIME: 00:02:59[0m
+[0;32mI (96004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (97004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (98004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (99004) RTC_OLED_SPI: TIME: 00:03:03[0m
+[0;32mI (100004) RTC_OLED_SPI: TIME: 00:03:04[0m
+[0;32mI (101004) RTC_OLED_SPI: TIME: 00:03:05[0m
+[0;32mI (102004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (103004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (104004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (105004) RTC_OLED_SPI: TIME: 00:03:09[0m
+[0;32mI (106004) RTC_OLED_SPI: TIME: 00:03:10[0m
+[0;32mI (107004) RTC_OLED_SPI: TIME: 00:03:11[0m
+[0;32mI (108004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (109004) RTC_OLED_SPI: DATE: 01/01/2000[0m
+[0;32mI (110004) RTC_OLED_SPI: DATE: 01/01/2000[0m
