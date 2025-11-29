@@ -18,14 +18,23 @@ static const char *TAG = "RTC_OLED_SPI";
 #define DS3231_ADDR             0x68
 
 // ===== CẤU HÌNH SPI CHO OLED =====
-#define OLED_DC_GPIO            GPIO_NUM_4    // D/C pin
-#define OLED_CS_GPIO            GPIO_NUM_5    // CS pin
-#define OLED_MOSI_GPIO          GPIO_NUM_2    // D1 (MOSI)
-#define OLED_SCLK_GPIO          GPIO_NUM_3    // D0 (SCK/CLK)
-#define OLED_RST_GPIO           GPIO_NUM_10   // RST (reset pin)
+#define OLED_DC_GPIO            GPIO_NUM_4
+#define OLED_CS_GPIO            GPIO_NUM_5
+#define OLED_MOSI_GPIO          GPIO_NUM_2
+#define OLED_SCLK_GPIO          GPIO_NUM_3
+#define OLED_RST_GPIO           GPIO_NUM_10
+
+// ===== CẤU HÌNH NÚT NHẤN CHO POMODORO =====
+#define BTN_START_STOP_GPIO     GPIO_NUM_18    // Nút Start/Stop
+#define BTN_RESET_GPIO          GPIO_NUM_19    // Nút Reset
 
 #define OLED_WIDTH              128
 #define OLED_HEIGHT             64
+
+// ===== POMODORO SETTINGS =====
+#define POMODORO_WORK_DURATION      (25 * 60)     // 25 phút
+#define POMODORO_BREAK_DURATION     (5 * 60)      // 5 phút
+#define POMODORO_LONG_BREAK_DURATION (15 * 60)    // 15 phút
 
 // ===== CẤU TRÚC THỜI GIAN =====
 typedef struct {
@@ -38,8 +47,29 @@ typedef struct {
     uint16_t year;
 } rtc_time_t;
 
-// ===== SPI HANDLE =====
+// ===== CẤU TRÚC POMODORO =====
+typedef enum {
+    POMODORO_IDLE,
+    POMODORO_WORK,
+    POMODORO_BREAK,
+    POMODORO_LONG_BREAK
+} pomodoro_state_t;
+
+typedef struct {
+    pomodoro_state_t state;
+    bool is_running;
+    uint16_t time_left;         // Giây còn lại
+    uint8_t pomodoro_count;     // Số pomodoro đã hoàn thành
+} pomodoro_t;
+
+// ===== BIẾN TOÀN CỤC =====
 static spi_device_handle_t spi_device;
+static pomodoro_t pomodoro = {
+    .state = POMODORO_IDLE,
+    .is_running = false,
+    .time_left = POMODORO_WORK_DURATION,
+    .pomodoro_count = 0
+};
 
 // ===== FONT 8x8 =====
 static const uint8_t font_8x8[][8] = {
@@ -54,8 +84,10 @@ static const uint8_t font_8x8[][8] = {
     {0x36, 0x49, 0x49, 0x49, 0x36, 0x00, 0x00, 0x00}, // 8
     {0x06, 0x49, 0x49, 0x29, 0x1E, 0x00, 0x00, 0x00}, // 9
     {0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00}, // :
-    {0x00, 0x00, 0x00, 0x3C, 0x3C, 0x00, 0x00, 0x00}  // - (gạch ngang ở giữa, chuẩn)
+    {0x00, 0x00, 0x00, 0x3C, 0x3C, 0x00, 0x00, 0x00}  // -
 };
+
+// XÓA font_5x7 vì không cần thiết
 
 // ===== CHUYỂN ĐỔI BCD =====
 uint8_t bcd_to_dec(uint8_t bcd) {
@@ -83,10 +115,22 @@ esp_err_t i2c_master_init(void) {
     return i2c_driver_install(I2C_MASTER_NUM, conf.mode, 0, 0, 0);
 }
 
+// ===== KHỞI TẠO NÚT NHẤN =====
+void button_init(void) {
+    gpio_config_t io_conf = {
+        .intr_type = GPIO_INTR_DISABLE,
+        .mode = GPIO_MODE_INPUT,
+        .pin_bit_mask = (1ULL << BTN_START_STOP_GPIO) | (1ULL << BTN_RESET_GPIO),
+        .pull_down_en = 0,
+        .pull_up_en = 1,
+    };
+    gpio_config(&io_conf);
+    ESP_LOGI(TAG, "Buttons initialized");
+}
+
 // ===== GHI LỆNH OLED SPI =====
 void oled_write_cmd(uint8_t cmd) {
-    gpio_set_level(OLED_DC_GPIO, 0);  // Command mode
-    
+    gpio_set_level(OLED_DC_GPIO, 0);
     spi_transaction_t t = {
         .length = 8,
         .tx_buffer = &cmd,
@@ -97,8 +141,7 @@ void oled_write_cmd(uint8_t cmd) {
 
 // ===== GHI DỮ LIỆU OLED SPI =====
 void oled_write_data(uint8_t *data, size_t len) {
-    gpio_set_level(OLED_DC_GPIO, 1);  // Data mode
-    
+    gpio_set_level(OLED_DC_GPIO, 1);
     spi_transaction_t t = {
         .length = len * 8,
         .tx_buffer = data,
@@ -118,10 +161,9 @@ void oled_reset(void) {
 
 // ===== KHỞI TẠO SPI =====
 void spi_master_init(void) {
-    // Cấu hình bus SPI
     spi_bus_config_t buscfg = {
         .mosi_io_num = OLED_MOSI_GPIO,
-        .miso_io_num = -1,  // Không dùng MISO
+        .miso_io_num = -1,
         .sclk_io_num = OLED_SCLK_GPIO,
         .quadwp_io_num = -1,
         .quadhd_io_num = -1,
@@ -130,10 +172,9 @@ void spi_master_init(void) {
     
     ESP_ERROR_CHECK(spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO));
     
-    // Cấu hình device OLED - Thử mode 0 hoặc mode 3
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 8 * 1000 * 1000,  // Giảm xuống 8 MHz để ổn định hơn
-        .mode = 0,  // SPI mode 0 (nếu không work thử mode 3)
+        .clock_speed_hz = 8 * 1000 * 1000,
+        .mode = 0,
         .spics_io_num = OLED_CS_GPIO,
         .queue_size = 7,
         .flags = 0,
@@ -141,7 +182,6 @@ void spi_master_init(void) {
     
     ESP_ERROR_CHECK(spi_bus_add_device(SPI2_HOST, &devcfg, &spi_device));
     
-    // Cấu hình DC pin
     gpio_config_t io_conf_dc = {
         .intr_type = GPIO_INTR_DISABLE,
         .mode = GPIO_MODE_OUTPUT,
@@ -151,7 +191,6 @@ void spi_master_init(void) {
     };
     gpio_config(&io_conf_dc);
     
-    // Cấu hình RST pin
     gpio_config_t io_conf_rst = {
         .intr_type = GPIO_INTR_DISABLE,
         .mode = GPIO_MODE_OUTPUT,
@@ -166,67 +205,40 @@ void spi_master_init(void) {
 
 // ===== KHỞI TẠO OLED =====
 void oled_init(void) {
-    // Reset OLED
     oled_reset();
-    
     vTaskDelay(pdMS_TO_TICKS(100));
     
     ESP_LOGI(TAG, "Starting OLED initialization sequence...");
     
-    oled_write_cmd(0xAE);  // Display off
-    
-    oled_write_cmd(0xD5);  // Set clock divide
-    oled_write_cmd(0x80);
-    
-    oled_write_cmd(0xA8);  // Set multiplex
-    oled_write_cmd(0x3F);  // 64 rows
-    
-    oled_write_cmd(0xD3);  // Set display offset
-    oled_write_cmd(0x00);
-    
-    oled_write_cmd(0x40);  // Set start line address
-    
-    oled_write_cmd(0x8D);  // Charge pump
-    oled_write_cmd(0x14);  // Enable charge pump
-    
-    oled_write_cmd(0x20);  // Memory addressing mode
-    oled_write_cmd(0x00);  // Horizontal addressing mode
-    
-    oled_write_cmd(0xA1);  // Segment remap (A0/A1)
-    oled_write_cmd(0xC8);  // COM scan direction (C0/C8)
-    
-    oled_write_cmd(0xDA);  // COM pins hardware configuration
-    oled_write_cmd(0x12);
-    
-    oled_write_cmd(0x81);  // Contrast control
-    oled_write_cmd(0xCF);
-    
-    oled_write_cmd(0xD9);  // Pre-charge period
-    oled_write_cmd(0xF1);
-    
-    oled_write_cmd(0xDB);  // VCOMH deselect level
+    oled_write_cmd(0xAE);
+    oled_write_cmd(0xD5); oled_write_cmd(0x80);
+    oled_write_cmd(0xA8); oled_write_cmd(0x3F);
+    oled_write_cmd(0xD3); oled_write_cmd(0x00);
     oled_write_cmd(0x40);
-    
-    oled_write_cmd(0xA4);  // Display all on resume
-    oled_write_cmd(0xA6);  // Normal display (not inverted)
-    
-    oled_write_cmd(0x2E);  // Deactivate scroll
-    
-    oled_write_cmd(0xAF);  // Display on
+    oled_write_cmd(0x8D); oled_write_cmd(0x14);
+    oled_write_cmd(0x20); oled_write_cmd(0x00);
+    oled_write_cmd(0xA1);
+    oled_write_cmd(0xC8);
+    oled_write_cmd(0xDA); oled_write_cmd(0x12);
+    oled_write_cmd(0x81); oled_write_cmd(0xCF);
+    oled_write_cmd(0xD9); oled_write_cmd(0xF1);
+    oled_write_cmd(0xDB); oled_write_cmd(0x40);
+    oled_write_cmd(0xA4);
+    oled_write_cmd(0xA6);
+    oled_write_cmd(0x2E);
+    oled_write_cmd(0xAF);
     
     vTaskDelay(pdMS_TO_TICKS(100));
-    
     ESP_LOGI(TAG, "OLED initialized successfully");
 }
 
 // ===== XÓA MÀN HÌNH =====
 void oled_clear(void) {
     uint8_t clear[128] = {0};
-    
     for (int page = 0; page < 8; page++) {
-        oled_write_cmd(0xB0 + page);  // Set page address
-        oled_write_cmd(0x00);          // Set lower column address
-        oled_write_cmd(0x10);          // Set higher column address
+        oled_write_cmd(0xB0 + page);
+        oled_write_cmd(0x00);
+        oled_write_cmd(0x10);
         oled_write_data(clear, 128);
     }
 }
@@ -262,39 +274,92 @@ void oled_draw_large_char(uint8_t page, uint8_t col, uint8_t c) {
     }
 }
 
-// ===== HIỂN THỊ CHỈ GIỜ (TO) =====
-void oled_display_time_only(rtc_time_t *time) {
-    // Dịch sang trái: bắt đầu từ cột 
-    int add = 15 ; 
-    oled_draw_large_char(3,add, time->hours / 10 + '0');
-    oled_draw_large_char(3, 16+add, time->hours % 10 + '0');
-    oled_draw_large_char(3, 28+add, ':');
-    oled_draw_large_char(3, 40+add, time->minutes / 10 + '0');
-    oled_draw_large_char(3, 52+add, time->minutes % 10 + '0');
-    oled_draw_large_char(3, 64+add, ':');
-    oled_draw_large_char(3, 76+add, time->seconds / 10 + '0');
-    oled_draw_large_char(3, 88+add, time->seconds % 10 + '0');
+// ===== VẼ KÝ TỰ NHỎ =====
+void oled_draw_small_char(uint8_t page, uint8_t col, uint8_t c) {
+    if (c >= '0' && c <= '9') c = c - '0';
+    else if (c == ':') c = 10;
+    else return;
+    
+    oled_write_cmd(0xB0 + page);
+    oled_write_cmd(0x00 + (col & 0x0F));
+    oled_write_cmd(0x10 + (col >> 4));
+    
+    for (int i = 0; i < 8; i++) {
+        uint8_t byte = font_8x8[c][i];
+        oled_write_data(&byte, 1);
+    }
 }
 
-// ===== HIỂN THỊ CHỈ NGÀY (TO) =====
-void oled_display_date_only(rtc_time_t *time) {
-    // Dòng 1: Ngày/Tháng (page 2-3)
-    int add = 25 ; 
-    oled_draw_large_char(2, add, time->date / 10 + '0');
-    oled_draw_large_char(2, 16+add, time->date % 10 + '0');
-    oled_draw_large_char(2, 32+add, '/');
-    oled_draw_large_char(2, 48+add, time->month / 10 + '0');
-    oled_draw_large_char(2, 64+add, time->month % 10 + '0');
+// ===== HIỂN THỊ POMODORO TIMER =====
+void oled_display_pomodoro(void) {
+    // Hiển thị ở page 5-6 (dưới dòng giờ)
+    uint8_t minutes = pomodoro.time_left / 60;
+    uint8_t seconds = pomodoro.time_left % 60;
     
-    // Dòng 2: Năm (page 5-6)
-    int offset = 30 ; 
+    // Vẽ timer: MM:SS (dùng font nhỏ 8x8 thông thường)
+    int offset = 30;
+    
+    // Vẽ phút
+    oled_draw_small_char(5, offset, minutes / 10 + '0');
+    oled_draw_small_char(5, offset + 8, minutes % 10 + '0');
+    
+    // Vẽ dấu :
+    oled_draw_small_char(5, offset + 16, ':');
+    
+    // Vẽ giây
+    oled_draw_small_char(5, offset + 24, seconds / 10 + '0');
+    oled_draw_small_char(5, offset + 32, seconds % 10 + '0');
+    
+    // Hiển thị trạng thái W (Work) hoặc B (Break)
+    oled_write_cmd(0xB0 + 5);
+    oled_write_cmd(0x00 + ((offset + 45) & 0x0F));
+    oled_write_cmd(0x10 + ((offset + 45) >> 4));
+    
+    if (pomodoro.state == POMODORO_WORK) {
+        // Vẽ chữ W
+        uint8_t w[] = {0x7F, 0x20, 0x18, 0x20, 0x7F, 0x00};
+        oled_write_data(w, 6);
+    } else if (pomodoro.state == POMODORO_BREAK || pomodoro.state == POMODORO_LONG_BREAK) {
+        // Vẽ chữ B
+        uint8_t b[] = {0x7F, 0x49, 0x49, 0x49, 0x36, 0x00};
+        oled_write_data(b, 6);
+    }
+    
+    // Hiển thị số Pomodoro đã hoàn thành (chỉ hiển thị nếu < 10)
+    if (pomodoro.pomodoro_count < 10) {
+        oled_draw_small_char(5, offset + 55, pomodoro.pomodoro_count + '0');
+    }
+}
+
+// ===== HIỂN THỊ CHỈ GIỜ =====
+void oled_display_time_only(rtc_time_t *time) {
+    int add = 15;
+    oled_draw_large_char(2, add, time->hours / 10 + '0');
+    oled_draw_large_char(2, 16 + add, time->hours % 10 + '0');
+    oled_draw_large_char(2, 28 + add, ':');
+    oled_draw_large_char(2, 40 + add, time->minutes / 10 + '0');
+    oled_draw_large_char(2, 52 + add, time->minutes % 10 + '0');
+    oled_draw_large_char(2, 64 + add, ':');
+    oled_draw_large_char(2, 76 + add, time->seconds / 10 + '0');
+    oled_draw_large_char(2, 88 + add, time->seconds % 10 + '0');
+}
+
+// ===== HIỂN THỊ CHỈ NGÀY =====
+void oled_display_date_only(rtc_time_t *time) {
+    int add = 25;
+    oled_draw_large_char(2, add, time->date / 10 + '0');
+    oled_draw_large_char(2, 16 + add, time->date % 10 + '0');
+    oled_draw_large_char(2, 32 + add, '/');
+    oled_draw_large_char(2, 48 + add, time->month / 10 + '0');
+    oled_draw_large_char(2, 64 + add, time->month % 10 + '0');
+    
+    int offset = 30;
     uint16_t year = time->year;
     oled_draw_large_char(5, offset, (year / 1000) + '0');
-    oled_draw_large_char(5, 16+offset, ((year / 100) % 10) + '0');
-    oled_draw_large_char(5, 32+offset, ((year / 10) % 10) + '0');
-    oled_draw_large_char(5, 48+offset, (year % 10) + '0');
+    oled_draw_large_char(5, 16 + offset, ((year / 100) % 10) + '0');
+    oled_draw_large_char(5, 32 + offset, ((year / 10) % 10) + '0');
+    oled_draw_large_char(5, 48 + offset, (year % 10) + '0');
 }
-
 
 // ===== ĐỌC THỜI GIAN DS3231 =====
 esp_err_t ds3231_get_time(rtc_time_t *time) {
@@ -319,125 +384,143 @@ esp_err_t ds3231_get_time(rtc_time_t *time) {
     return ESP_OK;
 }
 
-// ===== ĐẶT THỜI GIAN =====
-esp_err_t ds3231_set_time(rtc_time_t *time) {
-    uint8_t data[8];
-    data[0] = 0x00;
-    data[1] = dec_to_bcd(time->seconds);
-    data[2] = dec_to_bcd(time->minutes);
-    data[3] = dec_to_bcd(time->hours);
-    data[4] = dec_to_bcd(time->day);
-    data[5] = dec_to_bcd(time->date);
-    data[6] = dec_to_bcd(time->month);
-    data[7] = dec_to_bcd(time->year - 2000);
-    
-    esp_err_t err = i2c_master_write_to_device(I2C_MASTER_NUM, DS3231_ADDR,
-                                               data, 8, 1000 / portTICK_PERIOD_MS);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to set time: %s", esp_err_to_name(err));
-    }
-    return err;
+// ===== XỬ LÝ POMODORO =====
+void pomodoro_start_stop(void) {
+    pomodoro.is_running = !pomodoro.is_running;
+    ESP_LOGI(TAG, "Pomodoro %s", pomodoro.is_running ? "Started" : "Paused");
 }
 
-// ===== TASK HIỂN THỊ LUÂN PHIÊN =====
+void pomodoro_reset(void) {
+    pomodoro.is_running = false;
+    pomodoro.state = POMODORO_WORK;
+    pomodoro.time_left = POMODORO_WORK_DURATION;
+    ESP_LOGI(TAG, "Pomodoro Reset");
+}
+
+void pomodoro_tick(void) {
+    if (!pomodoro.is_running) return;
+    
+    if (pomodoro.time_left > 0) {
+        pomodoro.time_left--;
+    } else {
+        // Hết thời gian
+        if (pomodoro.state == POMODORO_WORK) {
+            pomodoro.pomodoro_count++;
+            
+            if (pomodoro.pomodoro_count % 4 == 0) {
+                pomodoro.state = POMODORO_LONG_BREAK;
+                pomodoro.time_left = POMODORO_LONG_BREAK_DURATION;
+                ESP_LOGI(TAG, "Long Break!");
+            } else {
+                pomodoro.state = POMODORO_BREAK;
+                pomodoro.time_left = POMODORO_BREAK_DURATION;
+                ESP_LOGI(TAG, "Short Break!");
+            }
+        } else {
+            pomodoro.state = POMODORO_WORK;
+            pomodoro.time_left = POMODORO_WORK_DURATION;
+            ESP_LOGI(TAG, "Work Time!");
+        }
+        pomodoro.is_running = false; // Tự động dừng khi hết thời gian
+    }
+}
+
+// ===== TASK NÚT NHẤN =====
+void button_task(void *pvParameter) {
+    bool btn_start_last = true;
+    bool btn_reset_last = true;
+    
+    while (1) {
+        bool btn_start = gpio_get_level(BTN_START_STOP_GPIO);
+        bool btn_reset = gpio_get_level(BTN_RESET_GPIO);
+        
+        // Phát hiện nhấn nút (active LOW - nhấn = 0)
+        if (!btn_start && btn_start_last) {
+            vTaskDelay(pdMS_TO_TICKS(50)); // Debounce
+            if (!gpio_get_level(BTN_START_STOP_GPIO)) {
+                pomodoro_start_stop();
+            }
+        }
+        
+        if (!btn_reset && btn_reset_last) {
+            vTaskDelay(pdMS_TO_TICKS(50)); // Debounce
+            if (!gpio_get_level(BTN_RESET_GPIO)) {
+                pomodoro_reset();
+            }
+        }
+        
+        btn_start_last = btn_start;
+        btn_reset_last = btn_reset;
+        
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
+// ===== TASK HIỂN THỊ =====
 void display_task(void *pvParameter) {
     rtc_time_t time;
-    bool show_time = true;  // true = hiển thị giờ, false = hiển thị ngày
+    bool show_time = true;
     uint8_t counter = 0;
     
     while (1) {
         if (ds3231_get_time(&time) == ESP_OK) {
             oled_clear();
             
-            // Luân phiên: 3 giây hiển thị giờ, 3 giây hiển thị ngày
             if (show_time) {
+                // Hiển thị thời gian
                 oled_display_time_only(&time);
-                ESP_LOGI(TAG, "TIME: %02d:%02d:%02d", 
-                         time.hours, time.minutes, time.seconds);
+                // Hiển thị Pomodoro LUÔN khi đang ở chế độ hiển thị giờ
+                oled_display_pomodoro();
+                
+                ESP_LOGI(TAG, "TIME: %02d:%02d:%02d | POMO: %02d:%02d %s",
+                         time.hours, time.minutes, time.seconds,
+                         pomodoro.time_left / 60, pomodoro.time_left % 60,
+                         pomodoro.is_running ? "RUN" : "PAUSE");
             } else {
+                // Chỉ hiển thị ngày, KHÔNG hiển thị Pomodoro
                 oled_display_date_only(&time);
-                ESP_LOGI(TAG, "DATE: %02d/%02d/%04d", 
+                
+                ESP_LOGI(TAG, "DATE: %02d/%02d/%04d",
                          time.date, time.month, time.year);
             }
             
             counter++;
-            
-            // Đổi chế độ hiển thị sau mỗi 3 giây
             if (counter >= 3) {
                 counter = 0;
-                show_time = !show_time;  // Đổi giữa giờ và ngày
+                show_time = !show_time;
             }
         } else {
             ESP_LOGE(TAG, "Failed to read time from DS3231");
         }
         
+        // Tick Pomodoro mỗi giây
+        pomodoro_tick();
+        
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
-}
-
-// ===== TEST OLED (Vẽ pattern để kiểm tra) =====
-void oled_test_pattern(void) {
-    ESP_LOGI(TAG, "Drawing test pattern...");
-    
-    // Vẽ các dòng ngang
-    uint8_t line[128];
-    memset(line, 0xFF, 128);
-    
-    for (int page = 0; page < 8; page++) {
-        oled_write_cmd(0xB0 + page);
-        oled_write_cmd(0x00);
-        oled_write_cmd(0x10);
-        
-        if (page % 2 == 0) {
-            oled_write_data(line, 128);
-        } else {
-            uint8_t empty[128] = {0};
-            oled_write_data(empty, 128);
-        }
-    }
-    
-    ESP_LOGI(TAG, "Test pattern complete");
 }
 
 // ===== MAIN =====
 void app_main(void) {
     ESP_LOGI(TAG, "========================================");
-    ESP_LOGI(TAG, "  ESP32-C3 RTC DS3231 + OLED SPI");
+    ESP_LOGI(TAG, "  ESP32-C3 RTC + OLED + Pomodoro");
     ESP_LOGI(TAG, "========================================");
     
-    // Khởi tạo I2C cho DS3231
     ESP_ERROR_CHECK(i2c_master_init());
     ESP_LOGI(TAG, "I2C initialized");
     
-    // Khởi tạo SPI cho OLED
     spi_master_init();
     oled_init();
-    
-    // Test OLED với pattern đơn giản
-    ESP_LOGI(TAG, "Testing OLED...");
-    oled_test_pattern();
-    vTaskDelay(pdMS_TO_TICKS(2000));
-    
     oled_clear();
+    
+    button_init();
+    
     vTaskDelay(pdMS_TO_TICKS(500));
     
-    // ===== ĐẶT THỜI GIAN BAN ĐẦU =====
-    // rtc_time_t init_time = {
-    //     .seconds = 0,
-    //     .minutes = 12,
-    //     .hours = 2,
-    //     .day = 7,
-    //     .date = 29,
-    //     .month = 11,
-    //     .year = 2025
-    // };
-    
-    // if (ds3231_set_time(&init_time) == ESP_OK) {
-    //     ESP_LOGI(TAG, "Time set successfully!");
-    // } else {
-    //     ESP_LOGE(TAG, "Failed to set time!");
-    // }
+    // Khởi tạo Pomodoro
+    pomodoro_reset();
     
     ESP_LOGI(TAG, "Starting display...");
     xTaskCreate(display_task, "display_task", 4096, NULL, 5, NULL);
+    xTaskCreate(button_task, "button_task", 2048, NULL, 5, NULL);
 }

@@ -1,50 +1,2894 @@
-Command: ninja flash
-[1/5] cmd.exe /C "cd /D D:\ESP_32\Smart_Desk_Light\build\esp-idf\esptool_py && e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe E:/esp_idf/esp/v5.5/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/ESP_32/Smart_Desk_Light/build/partition_table/partition-table.bin D:/ESP_32/Smart_Desk_Light/build/Smart_Desk_Light.bin"
-Smart_Desk_Light.bin binary size 0x32d80 bytes. Smallest app partition is 0x100000 bytes. 0xcd280 bytes (80%) free.
-[2/5] Performing build step for 'bootloader'
-[1/1] C:\WINDOWS\SYSTEM32\cmd.exe /C "cd /D D:\ESP_32\Smart_Desk_Light\build\bootloader\esp-idf\esptool_py && e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe E:/esp_idf/esp/v5.5/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/ESP_32/Smart_Desk_Light/build/bootloader/bootloader.bin"
-Bootloader binary size 0x5240 bytes. 0x2dc0 bytes (36%) free.
-[3/5] No install step for 'bootloader'
-[4/5] Completed 'bootloader'
-[4/5] cmd.exe /C "cd /D E:\esp_idf\esp\v5.5\esp-idf\components\esptool_py && E:\esp_idf\.espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=E:/esp_idf/esp/v5.5/esp-idf -D SERIAL_TOOL=e:/esp_idf/.espressif/python_env/idf5.5_py3.11_env/Scripts/python.exe;;E:/esp_idf/esp/v5.5/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32c3 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/ESP_32/Smart_Desk_Light/build -P E:/esp_idf/esp/v5.5/esp-idf/components/esptool_py/run_serial_tool.cmake"
-esptool.py --chip esp32c3 -p com7 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 Smart_Desk_Light.bin 0x8000 partition_table/partition-table.bin
-esptool.py v4.10.dev2
-Serial port com7
-Connecting...
-Failed to get PID of a device on com7, using standard reset sequence.
-.
-Chip is ESP32-C3 (QFN32) (revision v0.3)
-Features: WiFi, BLE, Embedded Flash 4MB (XMC)
-Crystal is 40MHz
-MAC: 84:f7:03:0a:92:9c
-Uploading stub...
-Running stub...
-Stub running...
-Changing baud rate to 460800
-Changed.
-Configuring flash size...
-Flash will be erased from 0x00000000 to 0x00005fff...
-Flash will be erased from 0x00010000 to 0x00042fff...
-Flash will be erased from 0x00008000 to 0x00008fff...
-SHA digest in image updated
-Compressed 21056 bytes to 13211...
-Writing at 0x00000000... (100 %)
-Wrote 21056 bytes (13211 compressed) at 0x00000000 in 0.7 seconds (effective 252.0 kbit/s)...
-Hash of data verified.
-Compressed 208256 bytes to 108987...
-Writing at 0x00010000... (14 %)
-Writing at 0x0001b24f... (28 %)
-Writing at 0x0002178e... (42 %)
-Writing at 0x00028938... (57 %)
-Writing at 0x0002f8b8... (71 %)
-Writing at 0x000370a2... (85 %)
-Writing at 0x0003df8c... (100 %)
-Wrote 208256 bytes (108987 compressed) at 0x00010000 in 3.5 seconds (effective 470.8 kbit/s)...
-Hash of data verified.
-Compressed 3072 bytes to 103...
-Writing at 0x00008000... (100 %)
-Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 435.2 kbit/s)...
-Hash of data verified.
+Command: e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe e:\esp_idf\esp\v5.5\esp-idf\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace D:\ESP_32\Smart_Desk_Light\build\Smart_Desk_Light.elf D:\ESP_32\Smart_Desk_Light\build\bootloader\bootloader.elf --force-color -m 'e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'e:\esp_idf\esp\v5.5\esp-idf\tools\idf.py'
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xf (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (30) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (30) boot: chip revision: v0.3[0m
+[0;32mI (30) boot: efuse block revision: v1.1[0m
+[0;32mI (34) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (38) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (95) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (107) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (127) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (135) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (140) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (140) boot: Disabling RNG early entropy source...[0m
+[0;32mI (153) cpu_start: Unicore app[0m
+[0;32mI (161) cpu_start: Pro cpu start user code[0m
+[0;32mI (161) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (161) app_init: Application information:[0m
+[0;32mI (161) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (166) app_init: App version:      1[0m
+[0;32mI (169) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (175) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (179) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (183) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (186) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (190) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (194) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (200) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (206) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (212) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (218) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (224) spi_flash: detected chip: generic[0m
+[0;32mI (227) spi_flash: flash io: dio[0m
+[0;33mW (230) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (242) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (252) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (258) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (265) main_task: Started on CPU0[0m
+[0;32mI (265) main_task: Calling app_main()[0m
+[0;32mI (265) RTC_OLED_SPI: ========================================[0m
+[0;32mI (275) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (275) RTC_OLED_SPI: ========================================[0m
+[0;32mI (285) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (285) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (305) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (405) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (505) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (505) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (505) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1005) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1005) main_task: Returned from app_main()[0m
+[0;32mI (1005) RTC_OLED_SPI: TIME: 03:21:31 | POMO: 25:00 PAUSE[0m
+[0;32mI (2015) RTC_OLED_SPI: TIME: 03:21:32 | POMO: 25:00 PAUSE[0m
+[0;32mI (3015) RTC_OLED_SPI: TIME: 03:21:33 | POMO: 25:00 PAUSE[0m
+[0;32mI (4015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7015) RTC_OLED_SPI: TIME: 03:21:37 | POMO: 25:00 PAUSE[0m
+[0;32mI (8015) RTC_OLED_SPI: TIME: 03:21:38 | POMO: 25:00 PAUSE[0m
+[0;32mI (9015) RTC_OLED_SPI: TIME: 03:21:39 | POMO: 25:00 PAUSE[0m
+[0;32mI (10015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (11015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (12015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (13015) RTC_OLED_SPI: TIME: 03:21:43 | POMO: 25:00 PAUSE[0m
+[0;32mI (14015) RTC_OLED_SPI: TIME: 03:21:44 | POMO: 25:00 PAUSE[0m
+[0;32mI (15015) RTC_OLED_SPI: TIME: 03:21:45 | POMO: 25:00 PAUSE[0m
+[0;32mI (16015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (17015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (18015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (19015) RTC_OLED_SPI: TIME: 03:21:49 | POMO: 25:00 PAUSE[0m
+[0;32mI (20015) RTC_OLED_SPI: TIME: 03:21:50 | POMO: 25:00 PAUSE[0m
+[0;32mI (21015) RTC_OLED_SPI: TIME: 03:21:51 | POMO: 25:00 PAUSE[0m
+[0;32mI (22015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (23015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (24015) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (25015) RTC_OLED_SPI: TIME: 03:21:55 | POMO: 25:00 PAUSE[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
 
-Leaving...
-Hard resetting via RTS pin...
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:21:59 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:00 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:22:01 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000001
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000001
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:06 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:07 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:22:08 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7020) RTC_OLED_SPI: TIME: 03:22:12 | POMO: 25:00 PAUSE[0m
+[0;32mI (8020) RTC_OLED_SPI: TIME: 03:22:13 | POMO: 25:00 PAUSE[0m
+[0;32mI (9020) RTC_OLED_SPI: TIME: 03:22:14 | POMO: 25:00 PAUSE[0m
+[0;32mI (10020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (11020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (12020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (13020) RTC_OLED_SPI: TIME: 03:22:18 | POMO: 25:00 PAUSE[0m
+[0;32mI (14020) RTC_OLED_SPI: TIME: 03:22:19 | POMO: 25:00 PAUSE[0m
+[0;32mI (15020) RTC_OLED_SPI: TIME: 03:22:20 | POMO: 25:00 PAUSE[0m
+[0;32mI (16020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:23 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:24 | POMO: 25:00 PAUSE[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:26 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:27 | POMO: 25:00 PAUSE[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:28 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:29 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:22:30 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7020) RTC_OLED_SPI: TIME: 03:22:34 | POMO: 25:00 PAUSE[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:36 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:37 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:22:38 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7020) RTC_OLED_SPI: TIME: 03:22:42 | POMO: 25:00 PAUSE[0m
+[0;32mI (8020) RTC_OLED_SPI: TIME: 03:22:43 | POMO: 25:00 PAUSE[0m
+[0;32mI (9020) RTC_OLED_SPI: TIME: 03:22:44 | POMO: 25:00 PAUSE[0m
+[0;32mI (10020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (11020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (12020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:49 | POMO: 25:00 PAUSE[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:22:51 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:22:52 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:22:53 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7020) RTC_OLED_SPI: TIME: 03:22:57 | POMO: 25:00 PAUSE[0m
+[0;32mI (8020) RTC_OLED_SPI: TIME: 03:22:58 | POMO: 25:00 PAUSE[0m
+[0;32mI (9020) RTC_OLED_SPI: TIME: 03:22:59 | POMO: 25:00 PAUSE[0m
+[0;32mI (10020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (11020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:23:07 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:23:08 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:23:09 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000001
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:23:13 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:23:14 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:23:15 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:23:22 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:23:23 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:23:24 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+Guru Meditation Error: Core  0 panic'ed (Stack protection fault). 
+
+Detected in task "IDLE" at 0x400318b4
+Stack pointer: 0x3fc90e70
+Stack bounds: 0x3fc90ea0 - 0x3fc914a0
+
+
+Core  0 register dump:
+MEPC    : 0x400318cc  RA      : 0x40031da4  SP      : 0x3fc90e70  GP      : 0x3fc90000  
+TP      : 0x3fc93670  T0      : 0x4005890e  T1      : 0x0000000f  T2      : 0x00000002  
+S0/FP   : 0x3fc90f14  S1      : 0x403814d1  A0      : 0x403814d1  A1      : 0x3ff1e978  
+A2      : 0x00000025  A3      : 0x40058912  A4      : 0x0000000e  A5      : 0x0000000a  
+A6      : 0x00000000  A7      : 0x00000000  S2      : 0x00000010  S3      : 0xffffffff  
+S4      : 0x00000001  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x00000000  T4      : 0x00000000  T5      : 0x00000000  T6      : 0x00000000  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x0000001b  MTVAL   : 0x00000028  
+MHARTID : 0x00000000  
+
+Stack memory:
+3fc90e70: 0x3fc90e68 0x00000000 0x3fc90e7c 0xffffffff 0x3fc90e7c 0x3fc90e7c 0x00000000 0x3fc90e90
+3fc90e90: 0xffffffff 0x3fc90e90 0x3fc90e90 0x00000000 0x00000004 0x3fc90f14 0x3fc90f14 0x00000000
+3fc90eb0: 0x00000000 0x00000000 0x403814d4 0x4038d8b8 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ed0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ef0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90f10: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x3fc90f7c 0x403814d4
+3fc90f30: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000001
+3fc90f50: 0x00000000 0x3c02330c 0x3fc91e54 0x403815fa 0x00000000 0x00000000 0x00000000 0x403816d0
+3fc90f70: 0x00000000 0x00000000 0x00000000 0x3fc91e54 0x00000000 0x00000000 0x3c02330c 0x4200f1e4
+3fc90f90: 0x00000000 0x3fc91744 0x3fc936d8 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90fb0: 0x00000000 0x00000001 0x00000000 0x00000000 0x00000000 0x3c027260 0x00000000 0x00000000
+3fc90fd0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc90ff0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91010: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91030: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91050: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x3fc9143c
+3fc91070: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91090: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc910f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91110: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91130: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91150: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91170: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91190: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911b0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911d0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc911f0: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91210: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91230: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+3fc91250: 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000
+
+
+
+ELF file SHA256: 92e73ec14
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403807a8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15c0
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2ff0
+entry 0x403cbf1a
+[0;32mI (35) boot: ESP-IDF v5.5 2nd stage bootloader[0m
+[0;32mI (35) boot: compile time Nov 20 2025 16:22:54[0m
+[0;32mI (35) boot: chip revision: v0.3[0m
+[0;32mI (35) boot: efuse block revision: v1.1[0m
+[0;32mI (39) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (50) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (63) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (76) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (83) boot: End of partition table[0m
+[0;32mI (86) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=09b7ch ( 39804) map[0m
+[0;32mI (100) esp_image: segment 1: paddr=00019ba4 vaddr=3fc8f800 size=012f4h (  4852) load[0m
+[0;32mI (102) esp_image: segment 2: paddr=0001aea0 vaddr=40380000 size=05178h ( 20856) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=19088h (102536) map[0m
+[0;32mI (132) esp_image: segment 4: paddr=000390b0 vaddr=40385178 size=0a5e4h ( 42468) load[0m
+[0;32mI (140) esp_image: segment 5: paddr=0004369c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (145) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (145) boot: Disabling RNG early entropy source...[0m
+[0;32mI (158) cpu_start: Unicore app[0m
+[0;32mI (166) cpu_start: Pro cpu start user code[0m
+[0;32mI (166) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (166) app_init: Application information:[0m
+[0;32mI (166) app_init: Project name:     Smart_Desk_Light[0m
+[0;32mI (171) app_init: App version:      1[0m
+[0;32mI (174) app_init: Compile time:     Nov 20 2025 16:22:26[0m
+[0;32mI (180) app_init: ELF file SHA256:  92e73ec14...[0m
+[0;32mI (184) app_init: ESP-IDF:          v5.5[0m
+[0;32mI (188) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (191) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (195) efuse_init: Chip rev:         v0.3[0m
+[0;32mI (199) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (206) heap_init: At 3FC91970 len 0002E690 (185 KiB): RAM[0m
+[0;32mI (211) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (217) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (223) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (229) spi_flash: detected chip: generic[0m
+[0;32mI (232) spi_flash: flash io: dio[0m
+[0;33mW (235) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (247) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (257) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (263) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (270) main_task: Started on CPU0[0m
+[0;32mI (270) main_task: Calling app_main()[0m
+[0;32mI (270) RTC_OLED_SPI: ========================================[0m
+[0;32mI (280) RTC_OLED_SPI:   ESP32-C3 RTC + OLED + Pomodoro[0m
+[0;32mI (280) RTC_OLED_SPI: ========================================[0m
+[0;32mI (290) RTC_OLED_SPI: I2C initialized[0m
+[0;32mI (290) RTC_OLED_SPI: SPI initialized[0m
+[0;32mI (310) RTC_OLED_SPI: OLED reset complete[0m
+[0;32mI (410) RTC_OLED_SPI: Starting OLED initialization sequence...[0m
+[0;32mI (510) RTC_OLED_SPI: OLED initialized successfully[0m
+[0;32mI (510) RTC_OLED_SPI: Buttons initialized with interrupt[0m
+[0;32mI (510) RTC_OLED_SPI: Pomodoro initialized[0m
+[0;32mI (1010) RTC_OLED_SPI: Starting display...[0m
+[0;32mI (1010) main_task: Returned from app_main()[0m
+[0;32mI (1010) RTC_OLED_SPI: TIME: 03:23:27 | POMO: 25:00 PAUSE[0m
+[0;32mI (2020) RTC_OLED_SPI: TIME: 03:23:28 | POMO: 25:00 PAUSE[0m
+[0;32mI (3020) RTC_OLED_SPI: TIME: 03:23:29 | POMO: 25:00 PAUSE[0m
+[0;32mI (4020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (5020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (6020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (7020) RTC_OLED_SPI: TIME: 03:23:33 | POMO: 25:00 PAUSE[0m
+[0;32mI (8020) RTC_OLED_SPI: TIME: 03:23:34 | POMO: 25:00 PAUSE[0m
+[0;32mI (9020) RTC_OLED_SPI: TIME: 03:23:35 | POMO: 25:00 PAUSE[0m
+[0;32mI (10020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (11020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (12020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (13020) RTC_OLED_SPI: TIME: 03:23:39 | POMO: 25:00 PAUSE[0m
+[0;32mI (14020) RTC_OLED_SPI: TIME: 03:23:40 | POMO: 25:00 PAUSE[0m
+[0;32mI (15020) RTC_OLED_SPI: TIME: 03:23:41 | POMO: 25:00 PAUSE[0m
+[0;32mI (16020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (17020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (18020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (19020) RTC_OLED_SPI: TIME: 03:23:45 | POMO: 25:00 PAUSE[0m
+[0;32mI (20020) RTC_OLED_SPI: TIME: 03:23:46 | POMO: 25:00 PAUSE[0m
+[0;32mI (21020) RTC_OLED_SPI: TIME: 03:23:47 | POMO: 25:00 PAUSE[0m
+[0;32mI (22020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (23020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (24020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (25020) RTC_OLED_SPI: TIME: 03:23:51 | POMO: 25:00 PAUSE[0m
+[0;32mI (26020) RTC_OLED_SPI: TIME: 03:23:52 | POMO: 25:00 PAUSE[0m
+[0;32mI (27020) RTC_OLED_SPI: TIME: 03:23:53 | POMO: 25:00 PAUSE[0m
+[0;32mI (28020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (29020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (30020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (31020) RTC_OLED_SPI: TIME: 03:23:57 | POMO: 25:00 PAUSE[0m
+[0;32mI (32020) RTC_OLED_SPI: TIME: 03:23:58 | POMO: 25:00 PAUSE[0m
+[0;32mI (33020) RTC_OLED_SPI: TIME: 03:23:59 | POMO: 25:00 PAUSE[0m
+[0;32mI (34020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (35020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (36020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (37020) RTC_OLED_SPI: TIME: 03:24:03 | POMO: 25:00 PAUSE[0m
+[0;32mI (38020) RTC_OLED_SPI: TIME: 03:24:04 | POMO: 25:00 PAUSE[0m
+[0;32mI (39020) RTC_OLED_SPI: TIME: 03:24:05 | POMO: 25:00 PAUSE[0m
+[0;32mI (40020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (41020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (42020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (43020) RTC_OLED_SPI: TIME: 03:24:09 | POMO: 25:00 PAUSE[0m
+[0;32mI (44020) RTC_OLED_SPI: TIME: 03:24:10 | POMO: 25:00 PAUSE[0m
+[0;32mI (45020) RTC_OLED_SPI: TIME: 03:24:11 | POMO: 25:00 PAUSE[0m
+[0;32mI (46020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (47020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (48020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (49020) RTC_OLED_SPI: TIME: 03:24:15 | POMO: 25:00 PAUSE[0m
+[0;32mI (50020) RTC_OLED_SPI: TIME: 03:24:16 | POMO: 25:00 PAUSE[0m
+[0;32mI (51020) RTC_OLED_SPI: TIME: 03:24:17 | POMO: 25:00 PAUSE[0m
+[0;32mI (52020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (53020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (54020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (55020) RTC_OLED_SPI: TIME: 03:24:21 | POMO: 25:00 PAUSE[0m
+[0;32mI (56020) RTC_OLED_SPI: TIME: 03:24:22 | POMO: 25:00 PAUSE[0m
+[0;32mI (57020) RTC_OLED_SPI: TIME: 03:24:23 | POMO: 25:00 PAUSE[0m
+[0;32mI (58020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (59020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (60020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (61020) RTC_OLED_SPI: TIME: 03:24:27 | POMO: 25:00 PAUSE[0m
+[0;32mI (62020) RTC_OLED_SPI: TIME: 03:24:28 | POMO: 25:00 PAUSE[0m
+[0;32mI (63020) RTC_OLED_SPI: TIME: 03:24:29 | POMO: 25:00 PAUSE[0m
+[0;32mI (64020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (65020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (66020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (67020) RTC_OLED_SPI: TIME: 03:24:33 | POMO: 25:00 PAUSE[0m
+[0;32mI (68020) RTC_OLED_SPI: TIME: 03:24:34 | POMO: 25:00 PAUSE[0m
+[0;32mI (69020) RTC_OLED_SPI: TIME: 03:24:35 | POMO: 25:00 PAUSE[0m
+[0;32mI (70020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (71020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (72020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (73020) RTC_OLED_SPI: TIME: 03:24:39 | POMO: 25:00 PAUSE[0m
+[0;32mI (74020) RTC_OLED_SPI: TIME: 03:24:40 | POMO: 25:00 PAUSE[0m
+[0;32mI (75020) RTC_OLED_SPI: TIME: 03:24:41 | POMO: 25:00 PAUSE[0m
+[0;32mI (76020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (77020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (78020) RTC_OLED_SPI: DATE: 29/11/2025[0m
+[0;32mI (79020) RTC_OLED_SPI: TIME: 03:24:45 | POMO: 25:00 PAUSE[0m
+[0;32mI (80020) RTC_OLED_SPI: TIME: 03:24:46 | POMO: 25:00 PAUSE[0m
+[0;32mI (81020) RTC_OLED_SPI: TIME: 03:24:47 | POMO: 25:00 PAUSE[0m

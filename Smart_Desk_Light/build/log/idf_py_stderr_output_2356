@@ -1,0 +1,111 @@
+Command: e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe e:\esp_idf\esp\v5.5\esp-idf\tools/idf_monitor.py -p COM7 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace D:\ESP_32\Smart_Desk_Light\build\Smart_Desk_Light.elf D:\ESP_32\Smart_Desk_Light\build\bootloader\bootloader.elf --force-color -m 'e:\esp_idf\.espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'e:\esp_idf\esp\v5.5\esp-idf\tools\idf.py'
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM7 instead...[0m
+[0;33m--- esp-idf-monitor 1.7.0 on \\.\COM7 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpci_klshl"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpci_klshl\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp3gixg0i_"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp3gixg0i_\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp5naveq9d"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp5naveq9d\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpiamjq1qn"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpiamjq1qn\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpj0z49hvs"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmpj0z49hvs\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400318b4: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x400318cc: [0;33m__utoa[0m[0m in [0;32mROM[0m
+[0m--- 0x40031da4: [0;33m__itoa[0m[0m in [0;32mROM[0m
+[0m--- 0x4005890e: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x403814d1: [0;33mlock_acquire_generic[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/newlib/src/locks.c[0m[0m:[1;31m145[0m
+[0m--- 0x40058912: [0;33mmemset[0m[0m in [0;32mROM[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/riscv/vectors_intc.S[0m[0m:[1;31m54[0m
+[0;33m--- Warning: Failed to run gdb_panic_server.py script: Command '['riscv32-esp-elf-gdb', '--batch', '-n', 'D:\\ESP_32\\Smart_Desk_Light\\build\\Smart_Desk_Light.elf', '-ex', 'add-symbol-file D:\\ESP_32\\Smart_Desk_Light\\build\\bootloader\\bootloader.elf', '-ex', 'target remote | "e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe" -m esp_idf_panic_decoder --target esp32c3 "C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp_oou0pma"', '-ex', 'bt']' returned non-zero exit status 1.
+--- Warning: b'add symbol table from file "D:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf"\r\nD:ESP_32Smart_Desk_Lightbuildbootloaderbootloader.elf: No such file or directory.\r\nerror starting child process \'e:\\esp_idf\\.espressif\\python_env\\idf5.5_py3.11_env\\Scripts\\python.exe -m esp_idf_panic_decoder --target esp32c3 C:\\Users\\DELL\\AppData\\Local\\Temp\\tmp_oou0pma\': CreateProcess: No such file or directory\r\nNo stack.\r\n'
+
+[0m
+[0m--- 0x403807a8: [0;33mesp_restart_noos[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m115[0m
+[0m--- 0x403cbf10: [0;33mesp_bootloader_get_description[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m39[0m
+[0m--- 0x403ce710: [0;33mesp_flash_encryption_enabled[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support/src/flash_encrypt.c[0m[0m:[1;31m89[0m
+[0m--- 0x403cbf1a: [0;33mcall_start_cpu0[0m[0m at [0;32mE:/esp_idf/esp/v5.5/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m
