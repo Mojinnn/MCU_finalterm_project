@@ -681,23 +681,53 @@ static esp_err_t reset_handler(httpd_req_t *req) {
 }
 
 // API Set Time
+
+// API Set Time với CORS support đầy đủ
 static esp_err_t settime_handler(httpd_req_t *req) {
-    char buf[100];
+    // Xử lý OPTIONS request (CORS preflight)
+    if (req->method == HTTP_OPTIONS) {
+        httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
+        httpd_resp_set_hdr(req, "Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        httpd_resp_set_hdr(req, "Access-Control-Allow-Headers", "Content-Type");
+        httpd_resp_set_hdr(req, "Access-Control-Max-Age", "86400");
+        httpd_resp_send(req, NULL, 0);
+        return ESP_OK;
+    }
+    
+    // Thêm CORS headers cho POST request
+    httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
+    httpd_resp_set_hdr(req, "Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    httpd_resp_set_hdr(req, "Access-Control-Allow-Headers", "Content-Type");
+    
+    char buf[200];
     int ret, remaining = req->content_len;
     
+    ESP_LOGI(TAG, "Received settime request, content_len: %d", remaining);
+    
     if (remaining >= sizeof(buf)) {
+        ESP_LOGE(TAG, "Content too long: %d bytes", remaining);
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Content too long");
         return ESP_FAIL;
     }
     
+    if (remaining == 0) {
+        ESP_LOGE(TAG, "Empty request body");
+        httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Empty body");
+        return ESP_FAIL;
+    }
+    
+    // Đọc body
     ret = httpd_req_recv(req, buf, remaining);
     if (ret <= 0) {
         if (ret == HTTPD_SOCK_ERR_TIMEOUT) {
+            ESP_LOGE(TAG, "Request timeout");
             httpd_resp_send_408(req);
         }
         return ESP_FAIL;
     }
     buf[ret] = '\0';
+    
+    ESP_LOGI(TAG, "Received JSON: %s", buf);
     
     // Parse JSON: {"h":14,"m":30,"s":0,"d":11,"mo":12,"y":2024}
     int h=0, m=0, s=0, date=1, month=1, year=2024;
@@ -720,9 +750,12 @@ static esp_err_t settime_handler(httpd_req_t *req) {
     ptr = strstr(buf, "\"y\":");
     if (ptr) year = atoi(ptr + 4);
     
+    ESP_LOGI(TAG, "Parsed: %04d-%02d-%02d %02d:%02d:%02d", year, month, date, h, m, s);
+    
     // Validate
     if (h < 0 || h > 23 || m < 0 || m > 59 || s < 0 || s > 59 ||
         date < 1 || date > 31 || month < 1 || month > 12 || year < 2000 || year > 2099) {
+        ESP_LOGE(TAG, "Invalid time values");
         httpd_resp_send_err(req, HTTPD_400_BAD_REQUEST, "Invalid time");
         return ESP_FAIL;
     }
@@ -731,7 +764,7 @@ static esp_err_t settime_handler(httpd_req_t *req) {
         .seconds = s,
         .minutes = m,
         .hours = h,
-        .day = 1, // Day of week (1-7), set to 1 for now
+        .day = 1, // Day of week (1-7)
         .date = date,
         .month = month,
         .year = year
@@ -739,36 +772,56 @@ static esp_err_t settime_handler(httpd_req_t *req) {
     
     esp_err_t err = ds3231_set_time(&new_time);
     
-    httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
+    httpd_resp_set_type(req, "application/json");
+    
     if (err == ESP_OK) {
+        ESP_LOGI(TAG, "✓ Time set successfully!");
         httpd_resp_send(req, "{\"status\":\"ok\"}", HTTPD_RESP_USE_STRLEN);
     } else {
+        ESP_LOGE(TAG, "✗ Failed to set time");
         httpd_resp_send(req, "{\"status\":\"error\"}", HTTPD_RESP_USE_STRLEN);
     }
     
     return ESP_OK;
 }
 
-// ===== KHỞI TẠO WEB SERVER =====
+// ===== CẬP NHẬT HÀM start_webserver =====
+// Thêm OPTIONS handler cho CORS preflight
 httpd_handle_t start_webserver(void) {
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
     config.lru_purge_enable = true;
-    config.max_uri_handlers = 8;
+    config.max_uri_handlers = 10; // Tăng lên để có chỗ cho OPTIONS
     
     ESP_LOGI(TAG, "Starting server on port: '%d'", config.server_port);
     if (httpd_start(&server, &config) == ESP_OK) {
+        // GET handlers
         httpd_uri_t root = {.uri = "/", .method = HTTP_GET, .handler = root_handler};
         httpd_uri_t data = {.uri = "/data", .method = HTTP_GET, .handler = data_handler};
         httpd_uri_t start = {.uri = "/start", .method = HTTP_GET, .handler = start_handler};
         httpd_uri_t reset = {.uri = "/reset", .method = HTTP_GET, .handler = reset_handler};
-        httpd_uri_t settime = {.uri = "/settime", .method = HTTP_POST, .handler = settime_handler};
+        
+        // POST handler
+        httpd_uri_t settime_post = {
+            .uri = "/settime", 
+            .method = HTTP_POST, 
+            .handler = settime_handler
+        };
+        
+        // OPTIONS handler cho CORS preflight
+        httpd_uri_t settime_options = {
+            .uri = "/settime", 
+            .method = HTTP_OPTIONS, 
+            .handler = settime_handler
+        };
         
         httpd_register_uri_handler(server, &root);
         httpd_register_uri_handler(server, &data);
         httpd_register_uri_handler(server, &start);
         httpd_register_uri_handler(server, &reset);
-        httpd_register_uri_handler(server, &settime);
+        httpd_register_uri_handler(server, &settime_post);
+        httpd_register_uri_handler(server, &settime_options);
         
+        ESP_LOGI(TAG, "✓ Web server started successfully");
         return server;
     }
     

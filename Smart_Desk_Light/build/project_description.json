@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "Smart_Desk_Light",
-    "project_version":    "989ca12-dirty",
+    "project_version":    "1fbbed4-dirty",
     "project_path":       "D:/MCU_finalterm_project/Smart_Desk_Light",
     "idf_path":           "E:/esp_idf/esp/v5.5/esp-idf",
     "build_dir":          "D:/MCU_finalterm_project/Smart_Desk_Light/build",
@@ -21,12 +21,12 @@
     "monitor_toolprefix": "riscv32-esp-elf-",
     "c_compiler":         "E:/esp_idf/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/riscv32-esp-elf-gcc.exe",
     "config_environment" : {
-        "COMPONENT_KCONFIGS" : "E:/esp_idf/esp/v5.5/esp-idf/components/driver/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/efuse/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_common/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ana_cmpr/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_bitscrambler/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_dac/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gpio/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gptimer/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2c/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2s/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ledc/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_mcpwm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_parlio/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_pcnt/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_rmt/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_spi/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_tsens/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_twai/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_hw_support/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_pm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_ringbuf/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_rom/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_security/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_system/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/freertos/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/hal/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/heap/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/log/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/mbedtls/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/newlib/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/pthread/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/soc/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS" : "E:/esp_idf/esp/v5.5/esp-idf/components/driver/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/efuse/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_common/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ana_cmpr/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_bitscrambler/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_dac/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gpio/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gptimer/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2c/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2s/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ledc/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_mcpwm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_parlio/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_pcnt/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_rmt/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_spi/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_tsens/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_twai/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_event/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_hw_support/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_pm/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_ringbuf/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_rom/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_security/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_system/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/freertos/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/hal/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/heap/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/log/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/lwip/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/mbedtls/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/newlib/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/pthread/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/soc/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/Kconfig;E:/esp_idf/esp/v5.5/esp-idf/components/vfs/Kconfig",
         "COMPONENT_KCONFIGS_PROJBUILD" : "E:/esp_idf/esp/v5.5/esp-idf/components/bootloader/Kconfig.projbuild;E:/esp_idf/esp/v5.5/esp-idf/components/esp_app_format/Kconfig.projbuild;E:/esp_idf/esp/v5.5/esp-idf/components/esp_rom/Kconfig.projbuild;E:/esp_idf/esp/v5.5/esp-idf/components/esptool_py/Kconfig.projbuild;E:/esp_idf/esp/v5.5/esp-idf/components/partition_table/Kconfig.projbuild;D:/MCU_finalterm_project/Smart_Desk_Light/main/Kconfig.projbuild;D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306/Kconfig.projbuild"
     },
     "common_component_reqs": [ "cxx", "newlib", "freertos", "esp_hw_support", "heap", "log", "soc", "hal", "esp_rom", "esp_common", "esp_system", "riscv" ],
-    "build_components" : [ "app_update", "bootloader", "bootloader_support", "cxx", "driver", "efuse", "esp_app_format", "esp_bootloader_format", "esp_common", "esp_driver_ana_cmpr", "esp_driver_bitscrambler", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_tsens", "esp_driver_twai", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_hw_support", "esp_mm", "esp_partition", "esp_pm", "esp_ringbuf", "esp_rom", "esp_security", "esp_system", "esp_timer", "espressif__led_strip", "esptool_py", "freertos", "hal", "heap", "log", "main", "mbedtls", "newlib", "nopnop2002__ssd1306", "partition_table", "pthread", "riscv", "rtc", "sdmmc", "soc", "spi_flash", "" ],
-    "build_component_paths" : [ "E:/esp_idf/esp/v5.5/esp-idf/components/app_update", "E:/esp_idf/esp/v5.5/esp-idf/components/bootloader", "E:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support", "E:/esp_idf/esp/v5.5/esp-idf/components/cxx", "E:/esp_idf/esp/v5.5/esp-idf/components/driver", "E:/esp_idf/esp/v5.5/esp-idf/components/efuse", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_app_format", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_common", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ana_cmpr", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_bitscrambler", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_dac", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gpio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gptimer", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2s", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ledc", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_mcpwm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_parlio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_pcnt", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_rmt", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdmmc", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdspi", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_spi", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_tsens", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_twai", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_hw_support", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_pm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_ringbuf", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_rom", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_security", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_system", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/espressif__led_strip", "E:/esp_idf/esp/v5.5/esp-idf/components/esptool_py", "E:/esp_idf/esp/v5.5/esp-idf/components/freertos", "E:/esp_idf/esp/v5.5/esp-idf/components/hal", "E:/esp_idf/esp/v5.5/esp-idf/components/heap", "E:/esp_idf/esp/v5.5/esp-idf/components/log", "D:/MCU_finalterm_project/Smart_Desk_Light/main", "E:/esp_idf/esp/v5.5/esp-idf/components/mbedtls", "E:/esp_idf/esp/v5.5/esp-idf/components/newlib", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306", "E:/esp_idf/esp/v5.5/esp-idf/components/partition_table", "E:/esp_idf/esp/v5.5/esp-idf/components/pthread", "E:/esp_idf/esp/v5.5/esp-idf/components/riscv", "D:/MCU_finalterm_project/Smart_Desk_Light/components/rtc", "E:/esp_idf/esp/v5.5/esp-idf/components/sdmmc", "E:/esp_idf/esp/v5.5/esp-idf/components/soc", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash", "" ],
+    "build_components" : [ "app_update", "bootloader", "bootloader_support", "cxx", "driver", "efuse", "esp_app_format", "esp_bootloader_format", "esp_coex", "esp_common", "esp_driver_ana_cmpr", "esp_driver_bitscrambler", "esp_driver_dac", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_i2c", "esp_driver_i2s", "esp_driver_ledc", "esp_driver_mcpwm", "esp_driver_parlio", "esp_driver_pcnt", "esp_driver_rmt", "esp_driver_sdio", "esp_driver_sdm", "esp_driver_sdmmc", "esp_driver_sdspi", "esp_driver_spi", "esp_driver_tsens", "esp_driver_twai", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_event", "esp_http_server", "esp_hw_support", "esp_mm", "esp_netif", "esp_netif_stack", "esp_partition", "esp_phy", "esp_pm", "esp_ringbuf", "esp_rom", "esp_security", "esp_system", "esp_timer", "esp_vfs_console", "esp_wifi", "espressif__led_strip", "esptool_py", "freertos", "hal", "heap", "http_parser", "json", "log", "lwip", "main", "mbedtls", "newlib", "nopnop2002__ssd1306", "nvs_flash", "partition_table", "pthread", "riscv", "rtc", "sdmmc", "soc", "spi_flash", "vfs", "wpa_supplicant", "" ],
+    "build_component_paths" : [ "E:/esp_idf/esp/v5.5/esp-idf/components/app_update", "E:/esp_idf/esp/v5.5/esp-idf/components/bootloader", "E:/esp_idf/esp/v5.5/esp-idf/components/bootloader_support", "E:/esp_idf/esp/v5.5/esp-idf/components/cxx", "E:/esp_idf/esp/v5.5/esp-idf/components/driver", "E:/esp_idf/esp/v5.5/esp-idf/components/efuse", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_app_format", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_common", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ana_cmpr", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_bitscrambler", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_dac", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gpio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_gptimer", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_i2s", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_ledc", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_mcpwm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_parlio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_pcnt", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_rmt", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdio", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdmmc", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_sdspi", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_spi", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_tsens", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_twai", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_event", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_hw_support", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif_stack", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_pm", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_ringbuf", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_rom", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_security", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_system", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_vfs_console", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/espressif__led_strip", "E:/esp_idf/esp/v5.5/esp-idf/components/esptool_py", "E:/esp_idf/esp/v5.5/esp-idf/components/freertos", "E:/esp_idf/esp/v5.5/esp-idf/components/hal", "E:/esp_idf/esp/v5.5/esp-idf/components/heap", "E:/esp_idf/esp/v5.5/esp-idf/components/http_parser", "E:/esp_idf/esp/v5.5/esp-idf/components/json", "E:/esp_idf/esp/v5.5/esp-idf/components/log", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip", "D:/MCU_finalterm_project/Smart_Desk_Light/main", "E:/esp_idf/esp/v5.5/esp-idf/components/mbedtls", "E:/esp_idf/esp/v5.5/esp-idf/components/newlib", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash", "E:/esp_idf/esp/v5.5/esp-idf/components/partition_table", "E:/esp_idf/esp/v5.5/esp-idf/components/pthread", "E:/esp_idf/esp/v5.5/esp-idf/components/riscv", "D:/MCU_finalterm_project/Smart_Desk_Light/components/rtc", "E:/esp_idf/esp/v5.5/esp-idf/components/sdmmc", "E:/esp_idf/esp/v5.5/esp-idf/components/soc", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash", "E:/esp_idf/esp/v5.5/esp-idf/components/vfs", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant", "" ],
     "build_component_info" : {
         "app_update": {
             "alias": "idf::app_update",
@@ -146,6 +146,21 @@
             "managed_priv_reqs": [],
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a",
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "esp_coex": {
+            "alias": "idf::esp_coex",
+            "target": "___idf_esp_coex",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_coex",
+            "reqs": [],
+            "priv_reqs": [ "esp_timer", "esp_driver_gpio" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_coex/libesp_coex.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex/esp32c3/esp_coex_adapter.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex/src/coexist_debug_diagram.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_coex/src/coexist_debug.c" ],
             "include_dirs": [ "include" ]
         },
         "esp_common": {
@@ -460,7 +475,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_driver_uart/libesp_driver_uart.a",
-            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uart.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uart_wakeup.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uhci.c" ],
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uart.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uart_wakeup.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uhci.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_uart/src/uart_vfs.c" ],
             "include_dirs": [ "include" ]
         },
         "esp_driver_usb_serial_jtag": {
@@ -475,7 +490,37 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_driver_usb_serial_jtag/libesp_driver_usb_serial_jtag.a",
-            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/src/usb_serial_jtag.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/src/usb_serial_jtag_connection_monitor.c" ],
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/src/usb_serial_jtag.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/src/usb_serial_jtag_connection_monitor.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_driver_usb_serial_jtag/src/usb_serial_jtag_vfs.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "esp_event": {
+            "alias": "idf::esp_event",
+            "target": "___idf_esp_event",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_event",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_event",
+            "reqs": [ "log", "esp_common", "freertos" ],
+            "priv_reqs": [ "esp_timer" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_event/libesp_event.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_event/default_event_loop.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_event/esp_event.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_event/esp_event_private.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "esp_http_server": {
+            "alias": "idf::esp_http_server",
+            "target": "___idf_esp_http_server",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_http_server",
+            "reqs": [ "http_parser", "esp_event" ],
+            "priv_reqs": [ "mbedtls", "lwip", "esp_timer" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_http_server/libesp_http_server.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_main.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_parse.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_sess.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_txrx.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_uri.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/httpd_ws.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_http_server/src/util/ctrl_sock.c" ],
             "include_dirs": [ "include" ]
         },
         "esp_hw_support": {
@@ -508,6 +553,36 @@
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/esp_mmu_map.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/port/esp32c3/ext_mem_layout.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/esp_cache_msync.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/esp_cache_utils.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_mm/heap_align_hw.c" ],
             "include_dirs": [ "include" ]
         },
+        "esp_netif": {
+            "alias": "idf::esp_netif",
+            "target": "___idf_esp_netif",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_netif",
+            "reqs": [ "esp_event" ],
+            "priv_reqs": [ "esp_netif_stack" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_netif/libesp_netif.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/esp_netif_handlers.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/esp_netif_objects.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/esp_netif_defaults.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/esp_netif_sntp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/esp_netif_lwip_defaults.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/netif/wlanif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/netif/ethernetif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif/lwip/netif/esp_pbuf_ref.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "esp_netif_stack": {
+            "alias": "idf::esp_netif_stack",
+            "target": "___idf_esp_netif_stack",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_netif_stack",
+            "type": "CONFIG_ONLY",
+            "lib": "__idf_esp_netif_stack",
+            "reqs": [ "lwip" ],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "",
+            "sources": [],
+            "include_dirs": []
+        },
         "esp_partition": {
             "alias": "idf::esp_partition",
             "target": "___idf_esp_partition",
@@ -522,6 +597,21 @@
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_partition/libesp_partition.a",
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition/partition.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_partition/partition_target.c" ],
             "include_dirs": [ "include" ]
+        },
+        "esp_phy": {
+            "alias": "idf::esp_phy",
+            "target": "___idf_esp_phy",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_phy",
+            "reqs": [],
+            "priv_reqs": [ "nvs_flash", "esp_driver_gpio", "efuse", "esp_timer", "esp_wifi" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_phy/libesp_phy.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/src/phy_override.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/src/lib_printf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/src/phy_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/src/phy_init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/esp32c3/phy_init_data.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_phy/src/btbb_init.c" ],
+            "include_dirs": [ "include", "esp32c3/include" ]
         },
         "esp_pm": {
             "alias": "idf::esp_pm",
@@ -613,6 +703,36 @@
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/esp_timer.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/esp_timer_init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/ets_timer_legacy.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/system_time.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/esp_timer_impl_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_timer/src/esp_timer_impl_systimer.c" ],
             "include_dirs": [ "include" ]
         },
+        "esp_vfs_console": {
+            "alias": "idf::esp_vfs_console",
+            "target": "___idf_esp_vfs_console",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_vfs_console",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_vfs_console",
+            "reqs": [],
+            "priv_reqs": [ "vfs", "esp_driver_uart", "esp_driver_usb_serial_jtag" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_vfs_console/libesp_vfs_console.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_vfs_console/vfs_console.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "esp_wifi": {
+            "alias": "idf::esp_wifi",
+            "target": "___idf_esp_wifi",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi",
+            "type": "LIBRARY",
+            "lib": "__idf_esp_wifi",
+            "reqs": [ "esp_event", "esp_phy", "esp_netif" ],
+            "priv_reqs": [ "esptool_py", "esp_pm", "esp_timer", "nvs_flash", "wpa_supplicant", "hal", "lwip", "esp_coex" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/esp_wifi/libesp_wifi.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/lib_printf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/mesh_event.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/smartconfig.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/wifi_init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/wifi_default.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/wifi_netif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/wifi_default_ap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/esp32c3/esp_adapter.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/regulatory/esp_wifi_regulatory.c", "E:/esp_idf/esp/v5.5/esp-idf/components/esp_wifi/src/smartconfig_ack.c" ],
+            "include_dirs": [ "include", "include/local", "wifi_apps/include", "wifi_apps/nan_app/include" ]
+        },
         "espressif__led_strip": {
             "alias": "idf::espressif__led_strip",
             "target": "___idf_espressif__led_strip",
@@ -688,6 +808,36 @@
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/heap/heap_caps_base.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/heap_caps.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/heap_caps_init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/multi_heap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/tlsf/tlsf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/port/memory_layout_utils.c", "E:/esp_idf/esp/v5.5/esp-idf/components/heap/port/esp32c3/memory_layout.c" ],
             "include_dirs": [ "include", "tlsf" ]
         },
+        "http_parser": {
+            "alias": "idf::http_parser",
+            "target": "___idf_http_parser",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/http_parser",
+            "type": "LIBRARY",
+            "lib": "__idf_http_parser",
+            "reqs": [],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/http_parser/libhttp_parser.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/http_parser/http_parser.c" ],
+            "include_dirs": [ "." ]
+        },
+        "json": {
+            "alias": "idf::json",
+            "target": "___idf_json",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/json",
+            "type": "LIBRARY",
+            "lib": "__idf_json",
+            "reqs": [],
+            "priv_reqs": [],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/json/libjson.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/json/cJSON/cJSON.c", "E:/esp_idf/esp/v5.5/esp-idf/components/json/cJSON/cJSON_Utils.c" ],
+            "include_dirs": [ "cJSON" ]
+        },
         "log": {
             "alias": "idf::log",
             "target": "___idf_log",
@@ -703,6 +853,21 @@
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/os/log_timestamp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_timestamp_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/os/log_lock.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/buffer/log_buffers.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/os/util.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/util.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_format_text.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_print.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/os/log_write.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_level/log_level.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_level/tag_log_level/tag_log_level.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_level/tag_log_level/linked_list/log_linked_list.c", "E:/esp_idf/esp/v5.5/esp-idf/components/log/src/log_level/tag_log_level/cache/log_binary_heap.c" ],
             "include_dirs": [ "include" ]
         },
+        "lwip": {
+            "alias": "idf::lwip",
+            "target": "___idf_lwip",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/lwip",
+            "type": "LIBRARY",
+            "lib": "__idf_lwip",
+            "reqs": [],
+            "priv_reqs": [ "vfs" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/lwip/liblwip.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/apps/sntp/sntp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/api_lib.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/api_msg.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/err.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/if_api.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/netbuf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/netdb.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/netifapi.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/sockets.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/api/tcpip.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/apps/sntp/sntp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/apps/netbiosns/netbiosns.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/def.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/dns.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/inet_chksum.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ip.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/mem.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/memp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/netif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/pbuf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/raw.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/stats.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/sys.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/tcp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/tcp_in.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/tcp_out.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/timeouts.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/udp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/autoip.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/dhcp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/etharp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/icmp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/igmp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/ip4.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/ip4_napt.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/ip4_addr.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv4/ip4_frag.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/dhcp6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/ethip6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/icmp6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/inet6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/ip6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/ip6_addr.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/ip6_frag.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/mld6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/core/ipv6/nd6.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ethernet.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/bridgeif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/bridgeif_fdb.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/slipif.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/auth.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/ccp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/chap-md5.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/chap-new.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/chap_ms.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/demand.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/eap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/ecp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/eui64.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/fsm.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/ipcp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/ipv6cp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/lcp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/magic.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/mppe.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/multilink.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/ppp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/pppapi.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/pppcrypt.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/pppoe.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/pppol2tp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/pppos.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/upap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/utils.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/vj.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/hooks/tcp_isn_default.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/hooks/lwip_default_hooks.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/debug/lwip_debug.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/sockets_ext.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/freertos/sys_arch.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/if_index.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/acd_dhcp_check.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/port/esp32xx/vfs_lwip.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/apps/ping/esp_ping.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/apps/ping/ping.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/apps/ping/ping_sock.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/polarssl/arc4.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/polarssl/des.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/polarssl/md4.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/polarssl/md5.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/lwip/src/netif/ppp/polarssl/sha1.c", "E:/esp_idf/esp/v5.5/esp-idf/components/lwip/apps/dhcpserver/dhcpserver.c" ],
+            "include_dirs": [ "include", "include/apps", "include/apps/sntp", "lwip/src/include", "port/include", "port/freertos/include/", "port/esp32xx/include", "port/esp32xx/include/arch", "port/esp32xx/include/sys" ]
+        },
         "main": {
             "alias": "idf::main",
             "target": "___idf_main",
@@ -710,7 +875,7 @@
             "dir": "D:/MCU_finalterm_project/Smart_Desk_Light/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "rtc", "driver" ],
+            "reqs": [ "rtc", "driver", "esp_wifi", "esp_event", "esp_netif", "esp_http_server", "nvs_flash", "json" ],
             "priv_reqs": [ "espressif__led_strip", "nopnop2002__ssd1306" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__led_strip", "nopnop2002__ssd1306" ],
@@ -762,6 +927,21 @@
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/nopnop2002__ssd1306/libnopnop2002__ssd1306.a",
             "sources": [ "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306/ssd1306.c", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306/ssd1306_spi.c", "D:/MCU_finalterm_project/Smart_Desk_Light/managed_components/nopnop2002__ssd1306/ssd1306_i2c_new.c" ],
             "include_dirs": [ "." ]
+        },
+        "nvs_flash": {
+            "alias": "idf::nvs_flash",
+            "target": "___idf_nvs_flash",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash",
+            "type": "LIBRARY",
+            "lib": "__idf_nvs_flash",
+            "reqs": [ "esp_partition" ],
+            "priv_reqs": [ "spi_flash", "newlib" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/nvs_flash/libnvs_flash.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_api.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_cxx_api.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_item_hash_list.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_page.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_pagemanager.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_storage.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_handle_simple.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_handle_locked.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_partition.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_partition_lookup.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_partition_manager.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_types.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_platform.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_bootloader.c", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_encrypted_partition.cpp", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_bootloader_aes.c", "E:/esp_idf/esp/v5.5/esp-idf/components/nvs_flash/src/nvs_bootloader_xts_aes.c" ],
+            "include_dirs": [ "include" ]
         },
         "partition_table": {
             "alias": "idf::partition_table",
@@ -867,6 +1047,36 @@
             "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/spi_flash/libspi_flash.a",
             "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/flash_brownout_hook.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_drivers.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_generic.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_issi.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_mxic.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_gd.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_winbond.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_boya.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_mxic_opi.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_chip_th.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/memspi_host_driver.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/cache_utils.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/flash_mmap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/flash_ops.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_wrap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/esp_flash_api.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/esp_flash_spi_init.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_os_func_app.c", "E:/esp_idf/esp/v5.5/esp-idf/components/spi_flash/spi_flash_os_func_noos.c" ],
             "include_dirs": [ "include" ]
+        },
+        "vfs": {
+            "alias": "idf::vfs",
+            "target": "___idf_vfs",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/vfs",
+            "type": "LIBRARY",
+            "lib": "__idf_vfs",
+            "reqs": [],
+            "priv_reqs": [ "esp_timer", "esp_driver_uart", "esp_driver_usb_serial_jtag", "esp_vfs_console" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/vfs/libvfs.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/vfs/vfs.c", "E:/esp_idf/esp/v5.5/esp-idf/components/vfs/vfs_eventfd.c", "E:/esp_idf/esp/v5.5/esp-idf/components/vfs/vfs_semihost.c", "E:/esp_idf/esp/v5.5/esp-idf/components/vfs/nullfs.c" ],
+            "include_dirs": [ "include" ]
+        },
+        "wpa_supplicant": {
+            "alias": "idf::wpa_supplicant",
+            "target": "___idf_wpa_supplicant",
+            "prefix": "idf",
+            "dir": "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant",
+            "type": "LIBRARY",
+            "lib": "__idf_wpa_supplicant",
+            "reqs": [],
+            "priv_reqs": [ "mbedtls", "esp_timer", "esp_wifi" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "file": "D:/MCU_finalterm_project/Smart_Desk_Light/build/esp-idf/wpa_supplicant/libwpa_supplicant.a",
+            "sources": [ "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/port/os_xtensa.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/port/eloop.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/ap_config.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/ieee802_1x.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/wpa_auth.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/wpa_auth_ie.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/pmksa_cache_auth.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/sta_info.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/ieee802_11.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/ap/comeback_token.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/common/sae.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/common/dragonfly.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/common/wpa_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/bitfield.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/aes-siv.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha256-kdf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/ccmp.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/aes-gcm.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/crypto_ops.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/dh_group5.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/dh_groups.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/ms_funcs.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha1-tlsprf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha256-tlsprf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha384-tlsprf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha256-prf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha1-prf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha384-prf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/md4-internal.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/sha1-tprf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_common/eap_wsc_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/common/ieee802_11_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/chap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_mschapv2.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_peap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_peap_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_tls.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_tls_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_ttls.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/mschapv2.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/eap_peer/eap_fast_pac.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/rsn_supp/pmksa_cache.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/rsn_supp/wpa.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/rsn_supp/wpa_ie.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/base64.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/ext_password.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/uuid.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/wpabuf.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/wpa_debug.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/utils/json.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_attr_build.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_attr_parse.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_attr_process.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_dev_attr.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/wps/wps_enrollee.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/common/sae_pk.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_eap_client.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa2_api_port.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa_main.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpas_glue.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_common.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wps.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_wpa3.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_owe.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/esp_hostap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/tls_mbedtls.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-bignum.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-rsa.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/crypto_mbedtls-ec.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/fastpsk.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/rc4.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/des-internal.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/esp_supplicant/src/crypto/fastpbkdf2.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/aes-wrap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/aes-unwrap.c", "E:/esp_idf/esp/v5.5/esp-idf/components/wpa_supplicant/src/crypto/aes-ccm.c" ],
+            "include_dirs": [ "include", "port/include", "esp_supplicant/include" ]
         }
     },
     "all_component_info" : {
@@ -1840,7 +2050,7 @@
             "priv_reqs": [ "vfs" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": []
+            "include_dirs": [ "include", "include/apps", "include/apps/sntp", "lwip/src/include", "port/include", "port/freertos/include/", "port/esp32xx/include", "port/esp32xx/include/arch", "port/esp32xx/include/sys" ]
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -2172,7 +2382,7 @@
             "prefix": "idf",
             "dir": "D:/MCU_finalterm_project/Smart_Desk_Light/main",
             "lib": "__idf_main",
-            "reqs": [ "rtc", "driver" ],
+            "reqs": [ "rtc", "driver", "esp_wifi", "esp_event", "esp_netif", "esp_http_server", "nvs_flash", "json" ],
             "priv_reqs": [ "espressif__led_strip", "nopnop2002__ssd1306" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__led_strip", "nopnop2002__ssd1306" ],
