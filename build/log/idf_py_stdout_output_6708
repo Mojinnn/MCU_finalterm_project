@@ -1,2 +1,0 @@
-[1/12] Performing build step for 'bootloader'
-[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"

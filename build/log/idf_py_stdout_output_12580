@@ -1,12 +1,0 @@
-[1/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
-[2/9] Linking C static library esp-idf\main\libmain.a
-[3/9] Performing build step for 'bootloader'
-[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"
-Bootloader binary size 0x5180 bytes. 0x2e80 bytes (36%) free.
-[4/7] Generating ld/sections.ld
-[5/7] Linking CXX executable MCU_final_project.elf
-FAILED: MCU_final_project.elf 
-cmd.exe /C "cd . && D:\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin\riscv32-esp-elf-g++.exe -march=rv32imc_zicsr_zifencei -nostartfiles -march=rv32imc_zicsr_zifencei --specs=nosys.specs    -Wl,--cref -Wl,--defsym=IDF_TARGET_ESP32C3=0 -Wl,--Map=D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.map -Wl,--no-warn-rwx-segments -fno-rtti -fno-lto -Wl,--gc-sections -Wl,--warn-common -T rom.api.ld -T esp32c3.peripherals.ld -T esp32c3.rom.ld -T esp32c3.rom.api.ld -T esp32c3.rom.libgcc.ld -T esp32c3.rom.version.ld -T esp32c3.rom.eco3.ld -T esp32c3.rom.newlib.ld -T memory.ld -T sections.ld @CMakeFiles\MCU_final_project.elf.rsp -o MCU_final_project.elf  && cd ."
-D:/Espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/13.2.0/../../../../riscv32-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(led.c.obj):D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/led.h:3: multiple definition of `led_strip'; esp-idf/main/libmain.a(main.c.obj):D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/led.h:3: first defined here
-collect2.exe: error: ld returned 1 exit status
-ninja: build stopped: subcommand failed.
