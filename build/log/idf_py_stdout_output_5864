@@ -1,0 +1,307 @@
+[1/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/wifi_manager.c.obj
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/wifi_manager.c: In function 'root_handler':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/wifi_manager.c:64:23: warning: unused variable 'g_current_time' [-Wunused-variable]
+   64 |     extern rtc_time_t g_current_time;  // From display.c
+      |                       ^~~~~~~~~~~~~~
+[2/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/display.c.obj
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c: In function 'display_pomodoro':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:63:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+   63 |     oled_write_cmd(0xB0 + 5);
+      |                    ^~~~~~~~
+      |                    |
+      |                    int
+In file included from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.h:5,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:1:
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:64:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+   64 |     oled_write_cmd(0x00 + ((offset + 45) & 0x0F));
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:65:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+   65 |     oled_write_cmd(0x10 + ((offset + 45) >> 4));
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+[3/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[4/12] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x5180 bytes. 0x2e80 bytes (36%) free.
+[5/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/oled.c.obj
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c: In function 'oled_init':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:99:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+   99 |     oled_write_cmd(0xAE); // Display OFF
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:100:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  100 |     oled_write_cmd(0xD5); oled_write_cmd(0x80); // Set display clock
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:100:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  100 |     oled_write_cmd(0xD5); oled_write_cmd(0x80); // Set display clock
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:101:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  101 |     oled_write_cmd(0xA8); oled_write_cmd(0x3F); // Set multiplex ratio
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:101:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  101 |     oled_write_cmd(0xA8); oled_write_cmd(0x3F); // Set multiplex ratio
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:102:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  102 |     oled_write_cmd(0xD3); oled_write_cmd(0x00); // Set display offset
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:103:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  103 |     oled_write_cmd(0x40); // Set start line
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:104:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  104 |     oled_write_cmd(0x8D); oled_write_cmd(0x14); // Charge pump
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:104:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  104 |     oled_write_cmd(0x8D); oled_write_cmd(0x14); // Charge pump
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:105:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  105 |     oled_write_cmd(0x20); oled_write_cmd(0x00); // Memory mode
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:106:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  106 |     oled_write_cmd(0xA1); // Set segment remap
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:107:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  107 |     oled_write_cmd(0xC8); // Set COM output scan direction
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:108:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  108 |     oled_write_cmd(0xDA); oled_write_cmd(0x12); // Set COM pins
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:108:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  108 |     oled_write_cmd(0xDA); oled_write_cmd(0x12); // Set COM pins
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:109:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  109 |     oled_write_cmd(0x81); oled_write_cmd(0xCF); // Set contrast
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:109:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  109 |     oled_write_cmd(0x81); oled_write_cmd(0xCF); // Set contrast
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:110:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  110 |     oled_write_cmd(0xD9); oled_write_cmd(0xF1); // Set precharge
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:110:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  110 |     oled_write_cmd(0xD9); oled_write_cmd(0xF1); // Set precharge
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:111:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  111 |     oled_write_cmd(0xDB); oled_write_cmd(0x40); // Set VCOMH deselect
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:111:42: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  111 |     oled_write_cmd(0xDB); oled_write_cmd(0x40); // Set VCOMH deselect
+      |                                          ^~~~
+      |                                          |
+      |                                          int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:112:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  112 |     oled_write_cmd(0xA4); // Display all on resume
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:113:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  113 |     oled_write_cmd(0xA6); // Normal display
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:114:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  114 |     oled_write_cmd(0x2E); // Deactivate scroll
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:115:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  115 |     oled_write_cmd(0xAF); // Display ON
+      |                    ^~~~
+      |                    |
+      |                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c: In function 'oled_clear':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:123:29: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  123 |         oled_write_cmd(0xB0 + page);
+      |                        ~~~~~^~~~~~
+      |                             |
+      |                             int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:125:24: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  125 |         oled_write_cmd(0x10);
+      |                        ^~~~
+      |                        |
+      |                        int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c: In function 'oled_draw_large_char':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:137:36: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  137 |         oled_write_cmd(0xB0 + page + p);
+      |                        ~~~~~~~~~~~~^~~
+      |                                    |
+      |                                    int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:138:29: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  138 |         oled_write_cmd(0x00 + (col & 0x0F));
+      |                        ~~~~~^~~~~~~~~~~~~~
+      |                             |
+      |                             int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:139:29: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  139 |         oled_write_cmd(0x10 + (col >> 4));
+      |                        ~~~~~^~~~~~~~~~~~
+      |                             |
+      |                             int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c: In function 'oled_draw_small_char':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:165:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  165 |     oled_write_cmd(0xB0 + page);
+      |                    ~~~~~^~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:166:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  166 |     oled_write_cmd(0x00 + (col & 0x0F));
+      |                    ~~~~~^~~~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:167:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  167 |     oled_write_cmd(0x10 + (col >> 4));
+      |                    ~~~~~^~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.c:73:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   73 | void oled_write_cmd(uint8_t *cmd) {
+      |                     ~~~~~~~~~^~~
+[6/10] Linking C static library esp-idf\main\libmain.a
+[7/10] Generating ld/sections.ld
+[8/10] Linking CXX executable MCU_final_project.elf
+FAILED: MCU_final_project.elf 
+cmd.exe /C "cd . && D:\Espressif\tools\riscv32-esp-elf\esp-13.2.0_20240530\riscv32-esp-elf\bin\riscv32-esp-elf-g++.exe -march=rv32imc_zicsr_zifencei -nostartfiles -march=rv32imc_zicsr_zifencei --specs=nosys.specs    -Wl,--cref -Wl,--defsym=IDF_TARGET_ESP32C3=0 -Wl,--Map=D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.map -Wl,--no-warn-rwx-segments -fno-rtti -fno-lto -Wl,--gc-sections -Wl,--warn-common -T rom.api.ld -T esp32c3.peripherals.ld -T esp32c3.rom.ld -T esp32c3.rom.api.ld -T esp32c3.rom.libgcc.ld -T esp32c3.rom.version.ld -T esp32c3.rom.eco3.ld -T esp32c3.rom.newlib.ld -T memory.ld -T sections.ld @CMakeFiles\MCU_final_project.elf.rsp -o MCU_final_project.elf  && cd ."
+D:/Espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/13.2.0/../../../../riscv32-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(clock.c.obj): in function `rtc_init':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/clock.c:15: multiple definition of `rtc_init'; esp-idf/esp_hw_support/libesp_hw_support.a(rtc_init.c.obj):D:/Espressif/frameworks/esp-idf-v5.3.1/components/esp_hw_support/port/esp32c3/rtc_init.c:33: first defined here
+collect2.exe: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.

@@ -11,6 +11,7 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "esp_log.h"
+#include "esp_err.h"
 #include "led_strip_types.h"
 #include "led_strip_rmt.h" 
 #include "led_strip.h"
@@ -31,7 +32,7 @@
 #define LED_PIN             8
 #define LED_NUM             25
 #define BUTTON_PIN          0
-#define TOUCH_PIN           2
+#define TOUCH_PIN           1
 #define DEBOUNCE_TIME_MS    50
 
 // Light mode
@@ -76,4 +77,4 @@
 #define POMODORO_LONG_BREAK_DURATION    (15 * 60)
 
 
-#endif MAIN_H
+#endif

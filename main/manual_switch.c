@@ -32,3 +32,14 @@ void manual_switch() {
         mode_switch(mode);
     }
 }
+
+static void manual_switch_task(void *arg) {
+    while (1) {
+        manual_switch();
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+}
+
+void manual_switch_start(void) {
+    xTaskCreate(manual_switch_task, "Manual Switch", 2048, NULL, 5, NULL);
+}

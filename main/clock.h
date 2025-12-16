@@ -29,19 +29,17 @@ typedef struct {
     uint8_t pomodoro_count;
 } pomodoro_t;
 
-static pomodoro_t pomodoro = {
-    .state = POMODORO_WORK,
-    .is_running = false,
-    .time_left = POMODORO_WORK_DURATION,
-    .pomodoro_count = 0
-};
-static rtc_time_t current_time;
-// static httpd_handle_t server = NULL;
-static bool time_synced = false;
+// static pomodoro_t pomodoro = {
+//     .state = POMODORO_WORK,
+//     .is_running = false,
+//     .time_left = POMODORO_WORK_DURATION,
+//     .pomodoro_count = 0
+// };
 
-esp_err_t i2c_master_init(void);
-esp_err_t ds3231_get_time(rtc_time_t *time);
-esp_err_t ds3231_set_time(rtc_time_t *time);
+esp_err_t clock_init(void);
+esp_err_t clock_get_time(rtc_time_t *time);
+esp_err_t clock_set_time(rtc_time_t *time);
+uint8_t bcd_to_dec(uint8_t bcd);
+uint8_t dec_to_bcd(uint8_t dec);
 
-
-#endif CLOCK_H
+#endif

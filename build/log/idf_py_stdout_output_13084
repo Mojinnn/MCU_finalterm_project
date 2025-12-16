@@ -27,7 +27,7 @@ Processing 2 dependencies:
 -- Found Threads: TRUE  
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
--- App "MCU_final_project" version: 9cb2d23-dirty
+-- App "MCU_final_project" version: 0a69e2b-dirty
 -- Adding linker script D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/esp-idf/esp_system/ld/memory.ld
 -- Adding linker script D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/esp-idf/esp_system/ld/sections.ld.in
 -- Adding linker script D:/Espressif/frameworks/esp-idf-v5.3.1/components/esp_rom/esp32c3/ld/esp32c3.rom.ld

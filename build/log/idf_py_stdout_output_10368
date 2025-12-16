@@ -1,0 +1,39 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x5180 bytes. 0x2e80 bytes (36%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/main.c:2:
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.h:9:13: warning: 'manual_switch_task' declared 'static' but never defined [-Wunused-function]
+    9 | static void manual_switch_task(void *arg);
+      |             ^~~~~~~~~~~~~~~~~~
+[3/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/manual_switch.c.obj
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.c: In function 'manual_switch_start':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.c:44:17: warning: passing argument 1 of 'xTaskCreate' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |     xTaskCreate(manual_switch_start, "Manual Switch", 2048, NULL, 5, NULL);
+      |                 ^~~~~~~~~~~~~~~~~~~
+      |                 |
+      |                 void (*)(void)
+In file included from D:/Espressif/frameworks/esp-idf-v5.3.1/components/freertos/esp_additions/include/freertos/idf_additions.h:20,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1533,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/components/driver/i2c/include/driver/i2c.h:17,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/main.h:8,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.h:4,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.c:1:
+D:/Espressif/frameworks/esp-idf-v5.3.1/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:371:44: note: expected 'TaskFunction_t' {aka 'void (*)(void *)'} but argument is of type 'void (*)(void)'
+  371 |     BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+      |                             ~~~~~~~~~~~~~~~^~~~~~~~~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.c: At top level:
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/manual_switch.c:36:13: warning: 'manual_switch_task' defined but not used [-Wunused-function]
+   36 | static void manual_switch_task(void *arg) {
+      |             ^~~~~~~~~~~~~~~~~~
+[4/8] Linking C static library esp-idf\main\libmain.a
+[5/8] Generating ld/sections.ld
+[6/8] Linking CXX executable MCU_final_project.elf
+[7/8] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32c3 image...
+Merged 1 ELF section
+Successfully created esp32c3 image.
+Generated D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.bin
+[8/8] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/partition_table/partition-table.bin D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.bin"
+MCU_final_project.bin binary size 0xe8570 bytes. Smallest app partition is 0x100000 bytes. 0x17a90 bytes (9%) free.
