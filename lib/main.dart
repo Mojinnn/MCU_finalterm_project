@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -41,13 +40,13 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
   
   // Dữ liệu từ ESP32
   String currentTime = '--:--:--';
-  String currentDate = '--/--/----';
   String pomodoroTimer = '25:00';
   String pomodoroState = 'Ready to Work';
   String pomodoroEmoji = '💪';
   bool isRunning = false;
   int pomodoroCount = 0;
   bool isConnected = false;
+  String lightMode = 'Tắt';
   
   Timer? _updateTimer;
   late AnimationController _pulseController;
@@ -59,7 +58,6 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
   void initState() {
     super.initState();
     
-    // Animation cho pulse effect
     _pulseController = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
@@ -69,7 +67,6 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
     
-    // Animation cho rotation
     _rotationController = AnimationController(
       duration: const Duration(seconds: 20),
       vsync: this,
@@ -77,11 +74,9 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
     
     _rotationAnimation = Tween<double>(begin: 0, end: 2 * math.pi).animate(_rotationController);
     
-    // Tự động cập nhật mỗi giây
     _updateTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       fetchData();
     });
-    // Lấy dữ liệu ngay lập tức
     fetchData();
   }
   
@@ -93,7 +88,6 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
     super.dispose();
   }
   
-  // Lấy dữ liệu từ ESP32
   Future<void> fetchData() async {
     try {
       final response = await http.get(
@@ -104,10 +98,8 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
         final data = json.decode(response.body);
         setState(() {
           currentTime = data['time'] ?? '--:--:--';
-          currentDate = data['date'] ?? '--/--/----';
           pomodoroTimer = data['timer'] ?? '25:00';
           
-          // Parse state và emoji
           String fullState = data['state'] ?? 'Ready to Work';
           if (fullState.contains('💪')) {
             pomodoroEmoji = '💪';
@@ -125,6 +117,7 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
           
           isRunning = data['running'] ?? false;
           pomodoroCount = data['count'] ?? 0;
+          lightMode = data['lightMode'] ?? 'Tắt';
           isConnected = true;
         });
       }
@@ -135,7 +128,6 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
     }
   }
   
-  // Start/Stop Pomodoro
   Future<void> startStop() async {
     try {
       await http.get(Uri.parse('http://$esp32Ip/start'));
@@ -146,7 +138,6 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
     }
   }
   
-  // Reset Pomodoro
   Future<void> reset() async {
     try {
       await http.get(Uri.parse('http://$esp32Ip/reset'));
@@ -157,69 +148,63 @@ class _PomodoroHomePageState extends State<PomodoroHomePage> with TickerProvider
     }
   }
   
-
-// Thay thế hàm setTime hiện tại bằng phiên bản này:
-
-// Set Time - Phiên bản cải tiến
-Future<void> setTime(DateTime dateTime) async {
-  try {
-    print('Đang gửi request set time...');
-    
-    final body = json.encode({
-      'h': dateTime.hour,
-      'm': dateTime.minute,
-      's': dateTime.second,
-      'd': dateTime.day,
-      'mo': dateTime.month,
-      'y': dateTime.year,
-    });
-    
-    print('Body: $body');
-    
-    final response = await http.post(
-      Uri.parse('http://$esp32Ip/settime'),
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: body,
-    ).timeout(
-      const Duration(seconds: 5),
-      onTimeout: () {
-        throw TimeoutException('Request timeout');
-      },
-    );
-    
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-    
-    if (response.statusCode == 200) {
-      await Future.delayed(const Duration(milliseconds: 500));
-      await fetchData();
-      
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('✓ Đã cập nhật thời gian thành công'),
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2),
-          ),
-        );
-      }
-    } else {
-      throw Exception('Server returned status: ${response.statusCode}');
+  Future<void> toggleLight() async {
+    try {
+      await http.get(Uri.parse('http://$esp32Ip/light'));
+      await Future.delayed(const Duration(milliseconds: 200));
+      fetchData();
+    } catch (e) {
+      showError('Không thể kết nối với ESP32');
     }
-  } on TimeoutException catch (e) {
-    print('Timeout error: $e');
-    showError('Timeout: ESP32 không phản hồi');
-  } on http.ClientException catch (e) {
-    print('Client error: $e');
-    showError('Lỗi kết nối: ${e.message}');
-  } catch (e) {
-    print('Error setting time: $e');
-    showError('Không thể cập nhật thời gian: $e');
   }
-}
+
+  Future<void> setTime(DateTime dateTime) async {
+    try {
+      final body = json.encode({
+        'h': dateTime.hour,
+        'm': dateTime.minute,
+        's': dateTime.second,
+        'd': dateTime.day,
+        'mo': dateTime.month,
+        'y': dateTime.year,
+      });
+      
+      final response = await http.post(
+        Uri.parse('http://$esp32Ip/settime'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: body,
+      ).timeout(
+        const Duration(seconds: 5),
+        onTimeout: () {
+          throw TimeoutException('Request timeout');
+        },
+      );
+      
+      if (response.statusCode == 200) {
+        await Future.delayed(const Duration(milliseconds: 500));
+        await fetchData();
+        
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('✓ Đã cập nhật thời gian thành công'),
+              backgroundColor: Colors.green,
+              duration: Duration(seconds: 2),
+            ),
+          );
+        }
+      }
+    } on TimeoutException {
+      showError('Timeout: ESP32 không phản hồi');
+    } on http.ClientException catch (e) {
+      showError('Lỗi kết nối: ${e.message}');
+    } catch (e) {
+      showError('Không thể cập nhật thời gian');
+    }
+  }
   
   void showError(String message) {
     if (mounted) {
@@ -233,7 +218,6 @@ Future<void> setTime(DateTime dateTime) async {
     }
   }
   
-  // Dialog cài đặt IP
   void showIpDialog() {
     final controller = TextEditingController(text: esp32Ip);
     
@@ -249,7 +233,7 @@ Future<void> setTime(DateTime dateTime) async {
             labelText: 'Địa chỉ IP',
             border: OutlineInputBorder(),
           ),
-          keyboardType: TextInputType.numberWithOptions(decimal: true),
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
         ),
         actions: [
           TextButton(
@@ -271,7 +255,6 @@ Future<void> setTime(DateTime dateTime) async {
     );
   }
   
-  // Dialog cài đặt thời gian
   void showSetTimeDialog() async {
     DateTime selectedDate = DateTime.now();
     TimeOfDay selectedTime = TimeOfDay.now();
@@ -358,14 +341,14 @@ Future<void> setTime(DateTime dateTime) async {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              const Color(0xFF0a0e27),
-              const Color(0xFF1a1a2e),
-              const Color(0xFF16213e),
+              Color(0xFF0a0e27),
+              Color(0xFF1a1a2e),
+              Color(0xFF16213e),
             ],
           ),
         ),
@@ -379,32 +362,16 @@ Future<void> setTime(DateTime dateTime) async {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    // Header với animation
                     _buildAnimatedHeader(),
-                    
                     const SizedBox(height: 30),
-                    
-                    // Connection Status
                     _buildConnectionStatus(),
-                    
                     const SizedBox(height: 30),
-                    
-                    // Clock với gradient border
                     _buildClockCard(),
-                    
                     const SizedBox(height: 30),
-                    
-                    // Pomodoro Timer với circular progress
                     _buildPomodoroCard(),
-                    
                     const SizedBox(height: 30),
-                    
-                    // Control Buttons
                     _buildControlButtons(),
-                    
                     const SizedBox(height: 20),
-                    
-                    // IP Info
                     _buildIpInfo(),
                   ],
                 ),
@@ -427,11 +394,11 @@ Future<void> setTime(DateTime dateTime) async {
             height: 100,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [
-                  const Color(0xFFe94560),
-                  const Color(0xFFf39c12),
-                  const Color(0xFF27ae60),
+                  Color(0xFFe94560),
+                  Color(0xFFf39c12),
+                  Color(0xFF27ae60),
                 ],
               ),
               boxShadow: [
@@ -551,7 +518,6 @@ Future<void> setTime(DateTime dateTime) async {
       ),
       child: Column(
         children: [
-          // Icon
           Container(
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -565,7 +531,6 @@ Future<void> setTime(DateTime dateTime) async {
             ),
           ),
           const SizedBox(height: 20),
-          // Time
           ScaleTransition(
             scale: _pulseAnimation,
             child: Text(
@@ -585,36 +550,18 @@ Future<void> setTime(DateTime dateTime) async {
               ),
             ),
           ),
-          const SizedBox(height: 15),
-          // Date
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              currentDate,
-              style: const TextStyle(
-                fontSize: 22,
-                color: Colors.white70,
-                letterSpacing: 2,
-              ),
-            ),
-          ),
         ],
       ),
     );
   }
   
   Widget _buildPomodoroCard() {
-    // Parse timer để tính phần trăm
     List<String> timerParts = pomodoroTimer.split(':');
     int minutes = int.tryParse(timerParts[0]) ?? 0;
     int seconds = int.tryParse(timerParts[1]) ?? 0;
     int totalSeconds = minutes * 60 + seconds;
     
-    int maxSeconds = 25 * 60; // Default work duration
+    int maxSeconds = 25 * 60;
     if (pomodoroState.contains('Short Break')) {
       maxSeconds = 5 * 60;
     } else if (pomodoroState.contains('Long Break')) {
@@ -627,13 +574,13 @@ Future<void> setTime(DateTime dateTime) async {
       width: double.infinity,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFF4a148c),
-            const Color(0xFF6a1b9a),
-            const Color(0xFF8e24aa),
+            Color(0xFF4a148c),
+            Color(0xFF6a1b9a),
+            Color(0xFF8e24aa),
           ],
         ),
         borderRadius: BorderRadius.circular(30),
@@ -651,7 +598,6 @@ Future<void> setTime(DateTime dateTime) async {
       ),
       child: Column(
         children: [
-          // State
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -673,7 +619,6 @@ Future<void> setTime(DateTime dateTime) async {
           ),
           const SizedBox(height: 30),
           
-          // Circular Progress
           Stack(
             alignment: Alignment.center,
             children: [
@@ -745,7 +690,6 @@ Future<void> setTime(DateTime dateTime) async {
           
           const SizedBox(height: 30),
           
-          // Pomodoro Count
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             decoration: BoxDecoration(
@@ -760,7 +704,7 @@ Future<void> setTime(DateTime dateTime) async {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text(
-                  '🏅',
+                  '🅿️',
                   style: TextStyle(fontSize: 24),
                 ),
                 const SizedBox(width: 12),
@@ -781,6 +725,17 @@ Future<void> setTime(DateTime dateTime) async {
   }
   
   Widget _buildControlButtons() {
+    Color lightColor;
+    if (lightMode == 'Trắng') {
+      lightColor = Colors.white;
+    } else if (lightMode == 'Vàng') {
+      lightColor = Colors.amber;
+    } else if (lightMode == 'Vàng nhạt') {
+      lightColor = Colors.yellow.shade200;
+    } else {
+      lightColor = Colors.grey;
+    }
+    
     return Column(
       children: [
         Row(
@@ -809,16 +764,72 @@ Future<void> setTime(DateTime dateTime) async {
           ],
         ),
         const SizedBox(height: 15),
-        SizedBox(
-          width: double.infinity,
-          child: _buildGradientButton(
-            icon: Icons.schedule,
-            label: 'Cài đặt thời gian',
-            gradient: const LinearGradient(
-              colors: [Color(0xFF3498db), Color(0xFF2980b9)],
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: isConnected 
+                      ? LinearGradient(
+                          colors: [lightColor.withOpacity(0.8), lightColor],
+                        )
+                      : null,
+                  color: isConnected ? null : Colors.grey.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: isConnected
+                      ? [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 15,
+                            offset: const Offset(0, 5),
+                          ),
+                        ]
+                      : [],
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: isConnected ? toggleLight : null,
+                    borderRadius: BorderRadius.circular(20),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.lightbulb,
+                            color: isConnected ? Colors.black87 : Colors.white,
+                            size: 24,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            '💡 Đèn: $lightMode',
+                            style: TextStyle(
+                              color: isConnected ? Colors.black87 : Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            onPressed: isConnected ? showSetTimeDialog : null,
-          ),
+            const SizedBox(width: 15),
+            Expanded(
+              child: _buildGradientButton(
+                icon: Icons.schedule,
+                label: 'Set Time',
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF3498db), Color(0xFF2980b9)],
+                ),
+                onPressed: isConnected ? showSetTimeDialog : null,
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -906,4 +917,3 @@ Future<void> setTime(DateTime dateTime) async {
     );
   }
 }
-
