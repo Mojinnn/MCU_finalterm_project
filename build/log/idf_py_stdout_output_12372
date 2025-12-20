@@ -1,0 +1,72 @@
+[1/5] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/partition_table/partition-table.bin D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.bin"
+MCU_final_project.bin binary size 0xeade0 bytes. Smallest app partition is 0x100000 bytes. 0x15220 bytes (8%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x5180 bytes. 0x2e80 bytes (36%) free.
+[2/3] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\components\esptool_py && D:\Espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=D:/Espressif/frameworks/esp-idf-v5.3.1 -D SERIAL_TOOL=D:/Espressif/python_env/idf5.3_py3.11_env/Scripts/python.exe;;D:/Espressif/frameworks/esp-idf-v5.3.1/components/esptool_py/esptool/esptool.py;--chip;esp32c3 -D SERIAL_TOOL_ARGS=--before=default_reset;--aesptool.py --chip esp32c3 -p COM4 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 MCU_final_project.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.8.1
+Serial port COM4
+Connecting....
+Chip is ESP32-C3 (QFN32) (revision v0.3)
+Features: WiFi, BLE, Embedded Flash 4MB (XMC)
+Crystal is 40MHz
+MAC: 84:f7:03:0a:92:9c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000fafff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20864 bytes to 12767...
+Writing at 0x00000000... (100 %)
+Wrote 20864 bytes (12767 compressed) at 0x00000000 in 0.7 seconds (effective 256.4 kbit/s)...
+Hash of data verified.
+Compressed 962016 bytes to 550935...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001d434... (5 %)
+Writing at 0x000288fe... (8 %)
+Writing at 0x0002d958... (11 %)
+Writing at 0x000343a2... (14 %)
+Writing at 0x0003d44e... (17 %)
+Writing at 0x000439e5... (20 %)
+Writing at 0x0004ae7e... (23 %)
+Writing at 0x00052afd... (26 %)
+Writing at 0x0005a376... (29 %)
+Writing at 0x000611d0... (32 %)
+Writing at 0x00068573... (35 %)
+Writing at 0x0006f5a7... (38 %)
+Writing at 0x0007613b... (41 %)
+Writing at 0x0007d120... (44 %)
+Writing at 0x00083116... (47 %)
+Writing at 0x00089893... (50 %)
+Writing at 0x00090421... (52 %)
+Writing at 0x00096007... (55 %)
+Writing at 0x0009c171... (58 %)
+Writing at 0x000a205e... (61 %)
+Writing at 0x000a84cb... (64 %)
+Writing at 0x000ae8ea... (67 %)
+Writing at 0x000b4b52... (70 %)
+Writing at 0x000bb195... (73 %)
+Writing at 0x000c1048... (76 %)
+Writing at 0x000c77b9... (79 %)
+Writing at 0x000ceb26... (82 %)
+Writing at 0x000d498a... (85 %)
+Writing at 0x000da8e6... (88 %)
+Writing at 0x000e27e7... (91 %)
+Writing at 0x000e9576... (94 %)
+Writing at 0x000efff0... (97 %)
+Writing at 0x000f6f44... (100 %)
+Wrote 962016 bytes (550935 compressed) at 0x00010000 in 16.2 seconds (effective 476.0 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 446.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+fter=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build -P D:/Espressif/frameworks/esp-idf-v5.3.1/components/esptool_py/run_serial_tool.cmake"

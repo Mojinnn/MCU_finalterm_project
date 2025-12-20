@@ -1,0 +1,66 @@
+[1/9] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\bootloader\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x5180 bytes. 0x2e80 bytes (36%) free.
+[2/7] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/display.c.obj
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c: In function 'display_pomodoro_fullscreen':
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:233:20: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  233 |     oled_write_cmd(0xB0 + 5);  // Dòng 5
+      |                    ^~~~~~~~
+      |                    |
+      |                    int
+In file included from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.h:5,
+                 from D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:165:
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:234:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  234 |     oled_write_cmd(0x00 + (state_offset & 0x0F));
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:235:25: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  235 |     oled_write_cmd(0x10 + (state_offset >> 4));
+      |                    ~~~~~^~~~~~~~~~~~~~~~~~~~~
+      |                         |
+      |                         int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:270:24: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  270 |         oled_write_cmd(0xB0 + 5);
+      |                        ^~~~~~~~
+      |                        |
+      |                        int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:271:29: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  271 |         oled_write_cmd(0x00 + (count_offset & 0x0F));
+      |                        ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+      |                             |
+      |                             int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/display.c:272:29: warning: passing argument 1 of 'oled_write_cmd' makes pointer from integer without a cast [-Wint-conversion]
+  272 |         oled_write_cmd(0x10 + (count_offset >> 4));
+      |                        ~~~~~^~~~~~~~~~~~~~~~~~~~~
+      |                             |
+      |                             int
+D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/main/oled.h:11:30: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'int'
+   11 | void oled_write_cmd(uint8_t *cmd);
+      |                     ~~~~~~~~~^~~
+[3/7] Linking C static library esp-idf\main\libmain.a
+[4/7] Generating ld/sections.ld
+[5/7] Linking CXX executable MCU_final_project.elf
+[6/7] Generating binary image from built executable
+esptool.py v4.8.1
+Creating esp32c3 image...
+Merged 1 ELF section
+Successfully created esp32c3 image.
+Generated D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.bin
+[7/7] cmd.exe /C "cd /D D:\Espressif\frameworks\esp-idf-v5.3.1\WorkSpace\MCU_final_project\build\esp-idf\esptool_py && D:\Espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe D:/Espressif/frameworks/esp-idf-v5.3.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/partition_table/partition-table.bin D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build/MCU_final_project.bin"
+MCU_final_project.bin binary size 0xeadf0 bytes. Smallest app partition is 0x100000 bytes. 0x15210 bytes (8%) free.

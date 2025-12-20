@@ -80,7 +80,7 @@
 
 
 // ===== BUZZER SETTING =====
-#define BUZZER_PIN          GPIO_NUM_9
+#define BUZZER_PIN          GPIO_NUM_18
 #define LEDC_TIMER          LEDC_TIMER_0
 #define LEDC_MODE           LEDC_LOW_SPEED_MODE
 #define LEDC_CHANNEL        LEDC_CHANNEL_0

@@ -14,7 +14,7 @@ void display_init(void);
 void display_start(void);
 void display_time_only(rtc_time_t *time);
 void display_date_only(rtc_time_t *time);
-void display_pomodoro(pomodoro_t *pomodoro);
+void display_pomodoro_fullscreen(pomodoro_t *pomo);
 pomodoro_t* get_pomodoro(void);
 void pomodoro_start_stop(void);
 void pomodoro_reset(void);

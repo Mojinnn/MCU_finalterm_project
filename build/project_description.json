@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "MCU_final_project",
-    "project_version":    "d23cf31-dirty",
+    "project_version":    "c881186-dirty",
     "project_path":       "D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project",
     "idf_path":           "D:/Espressif/frameworks/esp-idf-v5.3.1",
     "build_dir":          "D:/Espressif/frameworks/esp-idf-v5.3.1/WorkSpace/MCU_final_project/build",
