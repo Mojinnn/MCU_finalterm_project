@@ -6,10 +6,8 @@
 #include "clock.h"
 #include "wifi_manager.h"
 
-// ===== GLOBAL CURRENT TIME (shared with wifi_manager) =====
 extern rtc_time_t g_current_time;
 
-// ===== FUNCTION DECLARATIONS =====
 void display_init(void);
 void display_start(void);
 

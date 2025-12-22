@@ -27,14 +27,14 @@
 #include <driver/ledc.h>
 
 
-// ===== Config WiFi =====
+// Config WiFi
 #define WIFI_SSID      "TTHL&TT-DHBK"
 #define WIFI_PASS      "viettenbadualara"
 
-#define LED_PIN             8
+#define LED_PIN             GPIO_NUM_8
 #define LED_NUM             25
-#define CHANGE_POMO_PIN     0
-#define TOUCH_PIN           1
+#define CHANGE_POMO_PIN     GPIO_NUM_0
+#define TOUCH_PIN           GPIO_NUM_1
 #define DEBOUNCE_TIME_MS    50
 
 // Light mode
@@ -45,7 +45,7 @@
 #define BLUE                3
 
 
-// ===== Config TIMEZONE =====
+// Config TIMEZONE
 #define TIMEZONE       "UTC-7"  // Vietnam (UTC+7)
 // Other timezone:
 // "UTC-7" = Vietnam (UTC+7)
@@ -59,32 +59,32 @@
 #define OLED_WIDTH          128
 #define OLED_HEIGHT         64
 
-#define OLED_MOSI           2
-#define OLED_SCK            3
-#define OLED_CS             5
-#define OLED_DC             4
-#define OLED_RST            10
+#define OLED_MOSI           GPIO_NUM_2
+#define OLED_SCK            GPIO_NUM_3
+#define OLED_CS             GPIO_NUM_5
+#define OLED_DC             GPIO_NUM_4
+#define OLED_RST            GPIO_NUM_10
 
 // Config I2C for RTC_DS3231    
-#define I2C_MASTER_SCL_IO           7
-#define I2C_MASTER_SDA_IO           6
+#define I2C_MASTER_SCL_IO           GPIO_NUM_7
+#define I2C_MASTER_SDA_IO           GPIO_NUM_6
 #define I2C_MASTER_NUM              I2C_NUM_0
 #define I2C_MASTER_FREQ_HZ          100000
 #define DS3231_ADDR                 0x68
 
 
-// ===== POMODORO SETTINGS =====
+// Config POMODORO
 #define POMODORO_WORK_DURATION          (25 * 60)
 #define POMODORO_BREAK_DURATION         (5 * 60)
 
 
-// ===== BUZZER SETTING =====
+// Config BUZZER
 #define BUZZER_PIN          GPIO_NUM_18
 #define LEDC_TIMER          LEDC_TIMER_0
 #define LEDC_MODE           LEDC_LOW_SPEED_MODE
 #define LEDC_CHANNEL        LEDC_CHANNEL_0
 #define LEDC_DUTY_RES       LEDC_TIMER_13_BIT
-#define LEDC_DUTY           (4096)              // 50% duty cycle (8192 / 2)
-#define LEDC_FREQUENCY      (2000)              // Tần số 2kHz
+#define LEDC_DUTY           (4096)
+#define LEDC_FREQUENCY      (2000)
 
 #endif

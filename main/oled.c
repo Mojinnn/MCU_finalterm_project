@@ -18,7 +18,6 @@ static const uint8_t font_8x8[][8] = {
     {0x00, 0x00, 0x00, 0x3C, 0x3C, 0x00, 0x00, 0x00}  // -
 };
 
-// ===== PRIVATE FUNCTIONS =====
 static void spi_master_init(void) {
     spi_bus_config_t buscfg = {
         .mosi_io_num = OLED_MOSI,
@@ -69,7 +68,7 @@ static void oled_reset(void) {
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 
-// ===== PUBLIC FUNCTIONS =====
+
 void oled_write_cmd(uint8_t *cmd) {
     gpio_set_level(OLED_DC, 0);
     spi_transaction_t t = {

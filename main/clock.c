@@ -2,7 +2,7 @@
 
 static const char* TAG = "RTC";
 
-// ===== BCD CONVERSION =====
+// BCD conversion
 uint8_t bcd_to_dec(uint8_t bcd) {
     return ((bcd / 16) * 10) + (bcd % 16);
 }
@@ -11,7 +11,7 @@ uint8_t dec_to_bcd(uint8_t dec) {
     return ((dec / 10) * 16) + (dec % 10);
 }
 
-// ===== INITIALIZATION =====
+// Initialization
 esp_err_t clock_init(void) {
     i2c_config_t conf = {
         .mode = I2C_MODE_MASTER,
@@ -38,7 +38,7 @@ esp_err_t clock_init(void) {
     return ESP_OK;
 }
 
-// ===== GET TIME =====
+// Get time
 esp_err_t clock_get_time(rtc_time_t *time) {
     if (time == NULL) {
         return ESP_ERR_INVALID_ARG;
@@ -71,7 +71,7 @@ esp_err_t clock_get_time(rtc_time_t *time) {
     return ESP_OK;
 }
 
-// ===== SET TIME =====
+// Set time
 esp_err_t clock_set_time(rtc_time_t *time) {
     if (time == NULL) {
         return ESP_ERR_INVALID_ARG;

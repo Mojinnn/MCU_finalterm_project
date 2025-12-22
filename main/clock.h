@@ -3,7 +3,7 @@
 
 #include "main.h"
 
-// ------- Time struct -------
+// Time struct
 typedef struct {
     uint8_t seconds;
     uint8_t minutes;
@@ -14,7 +14,7 @@ typedef struct {
     uint16_t year;
 } rtc_time_t;
 
-// ------- Pomodoro struct -------
+// Pomodoro struct
 typedef enum {
     POMODORO_IDLE,
     POMODORO_WORK,

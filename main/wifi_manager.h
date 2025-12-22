@@ -8,7 +8,6 @@
 #include "touch_sensor.h"
 
 
-// ===== TIMEZONE CONFIGURATION =====
 #define TIMEZONE       "UTC-7"  // Vietnam (UTC+7)
 
 esp_err_t wifi_manager_init(void);
